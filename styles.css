@@ -320,6 +320,11 @@ img {
   word-break: keep-all;
 }
 
+/* 제목이 긴 섹션 헤더(About)용 — 제목 칸을 넓게 */
+.section-header.wide-title {
+  grid-template-columns: 1.6fr 2fr;
+}
+
 .section-description {
   font-size: 16px;
   color: var(--gray-700);
@@ -935,7 +940,7 @@ img {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 48px;
   margin-bottom: 40px;
 }
@@ -1231,6 +1236,7 @@ img {
 
   .hero-grid,
   .section-header,
+  .section-header.wide-title,
   .page-header-grid,
   .about-intro,
   .skills-category,
@@ -1267,6 +1273,12 @@ img {
     padding: 24px;
     border-bottom: 1px solid var(--gray-200);
     gap: 16px;
+    box-shadow: 0 16px 32px rgba(10, 10, 10, 0.08);
+  }
+
+  .nav-menu a {
+    display: block;
+    padding: 8px 0;
   }
 
   .nav-menu.open {
@@ -1310,8 +1322,29 @@ img {
     width: 100%;
   }
 
+  /* 상세 페이지의 GitHub·Site 버튼은 작게 나란히 유지 */
+  .detail-links .btn {
+    width: auto;
+  }
+
   .hero-profile-row {
     flex-direction: column;
+  }
+
+  /* 프로필 카드 안쪽 여백을 화면에 맞게 축소 */
+  .hero-visual {
+    padding: 28px;
+  }
+
+  /* 좁은 화면에서 대표 이미지가 너무 납작하지 않게 */
+  .project-cover {
+    aspect-ratio: 16 / 9;
+  }
+
+  .section-header,
+  .section-header.wide-title {
+    gap: 24px;
+    margin-bottom: 48px;
   }
 }
 
