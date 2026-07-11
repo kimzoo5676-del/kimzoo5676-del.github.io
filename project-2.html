@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project 2 | 김주우</title>
+  <title>SSAFY RACE | 김주우</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SSAFY RACE | 김주우" />
+  <meta property="og:description" content="실시간 차량·도로 센싱 정보로 조향과 가감속을 제어하는 자율주행 알고리즘 — 전체 278팀 중 2위" />
+  <meta property="og:url" content="https://kimzoo5676-del.github.io/project-2.html" />
+  <meta name="twitter:card" content="summary" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
@@ -36,12 +41,12 @@
             <span class="sep">/</span>
             <a href="projects.html">Projects</a>
             <span class="sep">/</span>
-            <span class="current">【프로젝트 제목】</span>
+            <span class="current">SSAFY RACE</span>
           </div>
         </div>
         <div>
           <div class="section-tag">Project Detail</div>
-          <h1 class="section-title">【프로젝트 제목】</h1>
+          <h1 class="section-title">SSAFY RACE</h1>
         </div>
       </div>
     </div>
@@ -50,62 +55,96 @@
   <section class="section">
     <div class="container">
 
-      <!-- 대표 이미지: <img src="shot-2.png" alt="..." /> 로 교체하세요. -->
-      <div class="project-cover"><span class="image-text">【대표 이미지】</span></div>
+      <!-- 대표 이미지: 주행 장면 캡처를 폴더에 넣고 <img src="ssafyrace-cover.png" alt="..." /> 로 교체하세요. -->
+      <div class="project-cover"><span class="image-text">SSAFY RACE — 자율주행 시뮬레이션</span></div>
 
       <div class="detail-meta">
         <div class="item">
           <div class="label">기간</div>
-          <div class="value">【예: 2026.01 — 2026.03】</div>
+          <div class="value">2026.05 — 2026.06</div>
         </div>
         <div class="item">
           <div class="label">역할</div>
-          <div class="value">【예: 백엔드 / 팀 4명】</div>
+          <div class="value">팀 프로젝트 · 주행 알고리즘</div>
         </div>
         <div class="item">
           <div class="label">한 줄 요약</div>
-          <div class="value">【무엇을 만든 프로젝트인지 한 줄로】</div>
+          <div class="value">실시간 차량·도로 센싱 정보로 조향과 가감속을 제어해, 트랙을 가장 빠르고 안정적으로 완주하는 자율주행 알고리즘</div>
         </div>
         <div class="item">
-          <div class="label">Links</div>
-          <div class="value detail-links">
-            <a href="#" class="btn btn-outline">GitHub</a>
-            <a href="#" class="btn btn-outline">Site</a>
+          <div class="label">성과</div>
+          <div class="value burgundy">전체 278팀 중 2위</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 56px;">
+        <div class="stack-group">
+          <div class="stack-label">Environment</div>
+          <div class="project-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Microsoft AirSim</span>
+            <span class="tech-tag">Driving API</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <div class="stack-label">Algorithm</div>
+          <div class="project-stack">
+            <span class="tech-tag">실시간 조향·속도 제어</span>
+            <span class="tech-tag">빈 공간 탐색 회피</span>
+            <span class="tech-tag">충돌 복구 상태 머신</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <div class="stack-label">AI 협업</div>
+          <div class="project-stack">
+            <span class="tech-tag">가설 검정 루프</span>
+            <span class="tech-tag">단일 변수 실험</span>
+            <span class="tech-tag">인계 문서</span>
           </div>
         </div>
       </div>
 
-      <div class="project-stack" style="margin-bottom: 56px;">
-        <span class="tech-tag">【기술】</span>
-        <span class="tech-tag">【기술】</span>
-        <span class="tech-tag">【기술】</span>
-        <span class="tech-tag">【기술】</span>
-      </div>
-
       <div class="detail-block">
         <h2>배경 &amp; 문제</h2>
-        <p>【어떤 문제를 풀려고 했는지, 왜 이 프로젝트를 시작했는지 적으세요.】</p>
+        <p>
+          삼성청년SW·AI아카데미에서 열린 자율주행 시뮬레이션 알고리즘
+          경진대회입니다(777명 · 278팀 참가). 실시간으로 주어지는 차량·도로
+          정보를 기반으로 조향·가속·감속을 제어해, 장애물이 배치된 다양한
+          트랙을 완주해야 합니다. 막연히 "빠르게"가 아니라 <b>완주를 보장하면서
+          랩타임을 단축한다</b>로 목표를 정의하고, 1위 기록과의 격차를 수치로
+          추적하며 접근했습니다.
+        </p>
       </div>
 
       <div class="detail-block">
-        <h2>한 일 (My Role)</h2>
+        <h2>한 일</h2>
         <ul>
-          <li>【내가 맡아서 구현/설계한 것을 적으세요.】</li>
-          <li>【내가 맡아서 구현/설계한 것을 적으세요.】</li>
-          <li>【내가 맡아서 구현/설계한 것을 적으세요.】</li>
+          <li>전방 커브 각도와 현재 주행 각도의 차이로 조향을 계산하고, 속도가 빠를수록 더 먼 지점을 참조하는 실시간 주행 제어를 구현했습니다. 급커브에서는 곡률 반경 기반 계산으로 전환하고 감속을 함께 걸어 이탈을 막았습니다.</li>
+          <li>장애물 배치마다 회피 코드를 분기하던 초기 설계를 버리고, 도로를 0.1m 간격의 후보선으로 보고 막힌 구간을 지운 뒤 <b>가장 가까운 빈 공간을 향하는 단일 방식</b>으로 재설계했습니다. 느린 상대 차량도 동적 장애물로 편입해, 예상 못 한 배치까지 별도 분기 없이 처리합니다.</li>
+          <li>충돌·역주행 시 자동으로 후진 탈출 후 재출발하는 복구 상태 머신을 구현해, 어떤 상황에서도 완주가 끊기지 않게 했습니다.</li>
+          <li>AI와는 <b>가설 → 구현 → 측정 → 판단</b> 루프로 협업했습니다. 한 번에 하나의 변수만 바꾸는 단일 변수 실험 원칙을 지키고, AI는 가설과 코드를 제안하되 검토·반영·시뮬레이션 실행·채택 판단은 직접 수행했으며, 세션이 바뀌어도 맥락이 이어지도록 베이스 코드·검증된 인과·기각된 가설·다음 결정지점을 담은 인계 문서를 관리했습니다.</li>
         </ul>
       </div>
 
       <div class="detail-block">
         <h2>결과 &amp; 배운 점</h2>
-        <p>【결과(수치가 있으면 좋음)와 이 프로젝트에서 배운 점을 적으세요.】</p>
+        <p>
+          전체 278팀 중 <b>2위</b>를 달성했습니다. 같은 코드도 실행 상황에 따라
+          기록이 초 단위로 흔들리는 것을 확인하고, "작은 차이는 노이즈,
+          뚜렷한 변화만 유의미"라는 측정 기준을 세워 잘못된 미세 튜닝을
+          줄였습니다. 회피 여유 확대, 회피 구간 감속처럼 기각된 가설도 지우지
+          않고 기록으로 남겨 같은 시행착오를 반복하지 않았습니다. 감이 아닌
+          <b>데이터 기준으로 판단하는 가설 검정 루프</b>를 실전에서 검증한
+          프로젝트입니다.
+        </p>
       </div>
 
       <div class="detail-block">
         <h2>스크린샷</h2>
+        <!-- 주행 장면 이미지를 폴더에 넣고 <img src="ssafyrace-1.png" alt="..." loading="lazy" /> 처럼 교체하세요. -->
         <div class="detail-shots">
-          <div class="shot"><span class="image-text">【이미지】</span></div>
-          <div class="shot"><span class="image-text">【이미지】</span></div>
+          <div class="shot"><span class="image-text">주행 장면</span></div>
+          <div class="shot"><span class="image-text">장애물 회피</span></div>
         </div>
       </div>
 
