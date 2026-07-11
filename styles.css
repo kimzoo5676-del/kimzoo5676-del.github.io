@@ -25,10 +25,23 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 88px; /* 스티키 헤더 높이만큼 앵커 위치 보정 */
+}
+
+/* 키보드 사용자를 위한 포커스 표시 */
+:focus-visible {
+  outline: 2px solid var(--burgundy);
+  outline-offset: 3px;
+}
+
+/* 텍스트 드래그 색상 */
+::selection {
+  background: var(--burgundy);
+  color: var(--white);
 }
 
 body {
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Pretendard Variable', Pretendard, 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 400;
   color: var(--black);
   background: var(--white);
@@ -63,7 +76,9 @@ img {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.86);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--gray-200);
 }
 
@@ -75,7 +90,7 @@ img {
 }
 
 .logo {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', 'Pretendard Variable', Pretendard, sans-serif;
   font-weight: 900;
   font-size: 20px;
   letter-spacing: -0.02em;
@@ -105,14 +120,23 @@ img {
   color: var(--black);
 }
 
-.nav-menu a.active::after {
+/* 네비 링크 밑줄 애니메이션 */
+.nav-menu a::after {
   content: '';
   position: absolute;
-  bottom: -8px;
   left: 0;
-  right: 0;
+  bottom: 0;
+  width: 100%;
   height: 2px;
   background: var(--burgundy);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+  transform: scaleX(1);
 }
 
 .nav-menu a:hover {
@@ -154,7 +178,7 @@ img {
 }
 
 .hero-title {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', 'Pretendard Variable', Pretendard, sans-serif;
   font-weight: 900;
   font-size: 64px;
   line-height: 1.05;
@@ -221,7 +245,7 @@ img {
   align-items: center;
   justify-content: center;
   padding: 14px 28px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', 'Pretendard Variable', Pretendard, sans-serif;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -229,6 +253,16 @@ img {
   cursor: pointer;
   transition: all 0.2s ease;
   border: 1px solid transparent;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(10, 10, 10, 0.12);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 .btn-primary {
@@ -278,7 +312,7 @@ img {
 }
 
 .section-title {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', 'Pretendard Variable', Pretendard, sans-serif;
   font-weight: 900;
   font-size: 48px;
   line-height: 1.1;
@@ -347,7 +381,7 @@ img {
 }
 
 .highlight-number {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', 'Pretendard Variable', Pretendard, sans-serif;
   font-weight: 900;
   font-size: 14px;
   color: var(--burgundy);
@@ -491,6 +525,11 @@ img {
 .project-card:hover {
   border-color: var(--black);
   transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(10, 10, 10, 0.08);
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.04);
 }
 
 .project-image {
@@ -508,10 +547,11 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
 .project-image .image-text {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', 'Pretendard Variable', Pretendard, sans-serif;
   font-weight: 900;
   font-size: 28px;
   letter-spacing: -0.02em;
@@ -731,7 +771,7 @@ img {
 .form-group textarea {
   width: 100%;
   padding: 12px 16px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', 'Pretendard Variable', Pretendard, sans-serif;
   font-size: 14px;
   border: 1px solid var(--gray-300);
   background: var(--white);
@@ -780,7 +820,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', 'Pretendard Variable', Pretendard, sans-serif;
   font-weight: 900;
   font-size: 120px;
   color: var(--gray-300);
@@ -831,7 +871,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', 'Pretendard Variable', Pretendard, sans-serif;
   font-weight: 900;
   font-size: 18px;
   margin-bottom: 20px;
@@ -858,7 +898,7 @@ img {
 }
 
 .cta h2 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', 'Pretendard Variable', Pretendard, sans-serif;
   font-weight: 900;
   font-size: 40px;
   letter-spacing: -0.02em;
@@ -970,7 +1010,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', 'Pretendard Variable', Pretendard, sans-serif;
   font-weight: 900;
   font-size: 36px;
   color: var(--gray-300);
@@ -1046,6 +1086,7 @@ img {
 .skill-pill:hover {
   border-color: var(--burgundy);
   color: var(--burgundy);
+  transform: translateY(-2px);
 }
 
 /* ===== Project Detail Page ===== */
@@ -1271,5 +1312,53 @@ img {
 
   .hero-profile-row {
     flex-direction: column;
+  }
+}
+
+/* ===== Scroll Reveal (script.js가 .reveal을 붙이고, 화면에 들어오면 .visible) ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* 그리드 안 카드들은 시차를 두고 등장 */
+.reveal:nth-child(2) { transition-delay: 0.08s; }
+.reveal:nth-child(3) { transition-delay: 0.16s; }
+.reveal:nth-child(4) { transition-delay: 0.24s; }
+
+/* 히어로는 페이지 로드 시 바로 등장 */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+
+.hero-grid > div {
+  animation: heroFadeUp 0.7s ease both;
+}
+
+.hero-grid > div:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+/* 움직임 최소화 설정 사용자 배려 */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero-grid > div {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
   }
 }
