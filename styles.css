@@ -813,6 +813,10 @@ img {
   gap: 32px;
 }
 
+.values-grid.four {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .value-card {
   padding: 32px;
   border: 1px solid var(--gray-200);
@@ -1201,6 +1205,7 @@ img {
   .skills-preview,
   .project-grid,
   .values-grid,
+  .values-grid.four,
   .skill-items,
   .detail-meta {
     grid-template-columns: repeat(2, 1fr);
@@ -1243,6 +1248,7 @@ img {
   .skills-preview,
   .project-grid,
   .values-grid,
+  .values-grid.four,
   .skill-items,
   .hero-info-grid,
   .detail-meta,
