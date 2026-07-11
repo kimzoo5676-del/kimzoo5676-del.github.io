@@ -8,7 +8,7 @@
   <meta property="og:title" content="SSAFY RACE | 김주우" />
   <meta property="og:description" content="실시간 차량·도로 센싱 정보로 조향과 가감속을 제어하는 자율주행 알고리즘 — 전체 278팀 중 2위" />
   <meta property="og:url" content="https://kimzoo5676-del.github.io/project-2.html" />
-  <meta property="og:image" content="https://kimzoo5676-del.github.io/ssafyrace-home.jpg" />
+  <meta property="og:image" content="https://kimzoo5676-del.github.io/ssafyrace-result.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -56,7 +56,7 @@
   <section class="section">
     <div class="container">
 
-      <div class="project-cover"><img src="ssafyrace-home.jpg" alt="싸피레이스 2026 SUMMER — 타임어택, 777명 278팀 참여" /></div>
+      <div class="project-cover"><img src="ssafyrace-result.jpg" alt="최종 순위 — 전체 278팀 중 2위" /></div>
 
       <div class="detail-meta">
         <div class="item">
@@ -117,12 +117,12 @@
       </div>
 
       <div class="detail-block">
-        <h2>한 일</h2>
+        <h2>한 일 — AI 협업 워크플로우</h2>
         <ul>
-          <li>전방 커브 각도와 현재 주행 각도의 차이로 조향을 계산하고, 속도가 빠를수록 더 먼 지점을 참조하는 실시간 주행 제어를 구현했습니다. 급커브에서는 곡률 반경 기반 계산으로 전환하고 감속을 함께 걸어 이탈을 막았습니다.</li>
-          <li>장애물 배치마다 회피 코드를 분기하던 초기 설계를 버리고, 도로를 0.1m 간격의 후보선으로 보고 막힌 구간을 지운 뒤 <b>가장 가까운 빈 공간을 향하는 단일 방식</b>으로 재설계했습니다. 느린 상대 차량도 동적 장애물로 편입해, 예상 못 한 배치까지 별도 분기 없이 처리합니다.</li>
-          <li>충돌·역주행 시 자동으로 후진 탈출 후 재출발하는 복구 상태 머신을 구현해, 어떤 상황에서도 완주가 끊기지 않게 했습니다.</li>
-          <li>AI와는 <b>가설 → 구현 → 측정 → 판단</b> 루프로 협업했습니다. 한 번에 하나의 변수만 바꾸는 단일 변수 실험 원칙을 지키고, AI는 가설과 코드를 제안하되 검토·반영·시뮬레이션 실행·채택 판단은 직접 수행했으며, 세션이 바뀌어도 맥락이 이어지도록 베이스 코드·검증된 인과·기각된 가설·다음 결정지점을 담은 인계 문서를 관리했습니다.</li>
+          <li><b>합의</b> — 기획·목표·제약을 AI와 먼저 합의했습니다. "완주를 보장하면서 랩타임을 단축한다"로 목표를 명시하고 1위와의 기록 격차를 수치로 제시했으며, 대회 규칙·API 명세·트랙 스펙·제어 변수 범위를 전달해 의도와 다른 방향으로 접근하지 않게 했습니다. AI의 분석은 참고하되, 결정권은 제가 가졌습니다.</li>
+          <li><b>규칙화</b> — 합의된 내용을 AI가 지켜야 할 규칙 문서로 고정했습니다. AI는 코드를 제시만 하고 반영은 제가 검토 후 직접 수행, 한 번에 하나의 가설만 바꾸는 단일 변수 실험으로 인과를 구분, 세션이 바뀌어도 맥락이 이어지도록 베이스 코드·검증된 인과·기각된 가설·다음 결정지점을 담은 인계 문서를 관리했습니다.</li>
+          <li><b>실행</b> — 가설 → 구현 → 측정 → 판단 루프를 반복했습니다. 장애물 배치마다 분기하던 회피 코드를 <b>가장 가까운 빈 공간을 향하는 단일 방식</b>으로 통일해 예상 못 한 배치까지 처리했고, 회피 여유 확대·회피 구간 감속 같은 가설은 측정 결과로 기각했습니다. 시뮬레이션 실행과 채택 판단은 제가 담당했습니다.</li>
+          <li><b>회고</b> — 기각한 실험도 지우지 않고 단서로 남겨 다음 실험이 같은 길을 반복하지 않게 했고, "작은 차이는 노이즈, 뚜렷한 변화만 유의미"라는 측정 기준을 세워 판단을 감이 아닌 데이터 기준으로 수행했습니다.</li>
         </ul>
       </div>
 
@@ -143,7 +143,7 @@
         <h2>스크린샷</h2>
         <div class="detail-shots">
           <div class="shot"><img src="ssafyrace-bracket.jpg" alt="결승 라이브 대진표 — 준결승 진출" loading="lazy" /></div>
-          <div class="shot"><img src="ssafyrace-result.jpg" alt="최종 순위 — 전체 2위" loading="lazy" /></div>
+          <div class="shot"><img src="ssafyrace-home.jpg" alt="싸피레이스 대회 홈 — 777명 278팀 참여" loading="lazy" /></div>
         </div>
       </div>
 
