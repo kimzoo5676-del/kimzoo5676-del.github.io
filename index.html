@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>김주우 | Portfolio</title>
-  <meta name="description" content="【한 줄 소개를 입력하세요 — 예: 사용자 경험을 고민하는 프론트엔드 개발자 김주우의 포트폴리오】" />
+  <meta name="description" content="가정 대신 데이터를 확인하고, AI를 실무에 적용하는 백엔드 개발자 김주우의 포트폴리오" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
   <header class="site-header">
@@ -18,11 +20,8 @@
       <nav>
         <ul class="nav-menu" id="navMenu">
           <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="skills.html">Skills</a></li>
           <li><a href="projects.html">Projects</a></li>
           <li><a href="experience.html">Experience</a></li>
-          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
       <button class="mobile-toggle" onclick="document.getElementById('navMenu').classList.toggle('open')">≡</button>
@@ -33,44 +32,49 @@
     <div class="container">
       <div class="hero-grid">
         <div>
-          <span class="hero-label">【직무 / 포지션】</span>
+          <span class="hero-label">Backend Developer</span>
           <h1 class="hero-title">
-            【핵심 키워드 1】,<br />
-            <span class="accent">【핵심 키워드 2】</span><br />
-            【핵심 키워드 3】.
+            데이터로 검증하고,<br />
+            <span class="accent">AI로 확장하는</span><br />
+            백엔드 개발자.
           </h1>
           <p class="hero-subtitle">
-            【자기소개 한두 문장을 입력하세요. 어떤 일을 하는지, 무엇을
-            추구하는지 간단히 적습니다.】
+            데이터를 직접 확인하며 문제를 정의하고, 기획 의도에 맞게
+            백엔드를 설계합니다. AI 연동부터 배포까지, 서비스가 실제로
+            동작하는 전 과정을 연결하는 개발을 지향합니다.
           </p>
           <div class="hero-actions">
             <a href="projects.html" class="btn btn-primary">프로젝트 보기</a>
-            <a href="contact.html" class="btn btn-outline">연락하기</a>
           </div>
         </div>
 
         <div class="hero-visual">
-          <div class="hero-info-grid">
-            <div class="info-block">
-              <div class="label">Name</div>
-              <div class="value">김주우 / Joowoo Kim</div>
+          <div class="hero-profile-row">
+            <div class="hero-photo">
+              <img src="profile.jpg" alt="김주우" />
             </div>
-            <div class="info-block">
-              <div class="label">Position</div>
-              <div class="value burgundy">【직무 / 포지션】</div>
+            <div class="hero-profile-info">
+              <div class="info-block">
+                <div class="label">Name</div>
+                <div class="value">김주우 / Joowoo Kim</div>
+              </div>
+              <div class="info-block">
+                <div class="label">Position</div>
+                <div class="value burgundy">Backend Developer</div>
+              </div>
+              <div class="info-block">
+                <div class="label">Phone</div>
+                <div class="value">010-5676-2533</div>
+              </div>
+              <div class="info-block">
+                <div class="label">Email</div>
+                <div class="value">kimzoo5676@gmail.com</div>
+              </div>
             </div>
-            <div class="info-block">
-              <div class="label">Status</div>
-              <div class="value">【예: 신입 / 취업 준비 중】</div>
-            </div>
-            <div class="info-block">
-              <div class="label">Location</div>
-              <div class="value">【예: Seoul, KR】</div>
-            </div>
-            <div class="info-block full">
-              <div class="label">Core Stack</div>
-              <div class="value">【핵심 기술들을 · 로 구분해 입력 — 예: A · B · C · D】</div>
-            </div>
+          </div>
+          <div class="info-block">
+            <div class="label">Core Stack</div>
+            <div class="value">Python · Java · Django · Spring · AWS · Linux</div>
           </div>
         </div>
       </div>
@@ -79,37 +83,44 @@
 
   <section class="section">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header" style="grid-template-columns: 1.6fr 2fr;">
         <div>
           <div class="section-tag">01 / About</div>
-          <h2 class="section-title">【소개 섹션 제목】</h2>
+          <h2 class="section-title">근거 위에서 만들고,<br />쉽게 전합니다</h2>
         </div>
         <p class="section-description">
-          【자신을 소개하는 두세 문장을 입력하세요. 어떤 사람인지,
-          어떤 가치를 추구하는지 적으면 좋습니다.】
+          복잡한 정보를 사용자가 이해할 수 있는 형태로 바꾸는 일을 선호합니다.
+          실제 데이터를 확인하고, AI를 실무에 맞게 적용하며,
+          설계부터 배포까지 서비스 전 과정을 다룹니다.
         </p>
       </div>
 
       <div class="highlights-grid">
         <div class="highlight-card">
           <div class="highlight-number">/ 01</div>
-          <h3 class="highlight-title">【강점 1 제목】</h3>
+          <h3 class="highlight-title">데이터로 검증하는 문제 해결</h3>
           <p class="highlight-text">
-            【강점 1에 대한 설명을 입력하세요.】
+            가정을 코드로 옮기기 전에 실제 데이터를 확인합니다. 추측으로 만든
+            로직은 실제 데이터 앞에서 어긋나기 쉽다는 것을 경험했기에, 문제가
+            생기면 감이 아니라 데이터를 먼저 열어봅니다.
           </p>
         </div>
         <div class="highlight-card">
           <div class="highlight-number">/ 02</div>
-          <h3 class="highlight-title">【강점 2 제목】</h3>
+          <h3 class="highlight-title">실무에 맞게 적용하는 AI</h3>
           <p class="highlight-text">
-            【강점 2에 대한 설명을 입력하세요.】
+            AI를 목적에 맞는 형태로 설계합니다. 반복되는 가공 작업은 배치로
+            미리 처리해 응답 속도와 비용을 낮추고, 실시간 응답은 답변 근거를
+            명확한 데이터로 한정해 신뢰할 수 있는 결과를 만듭니다.
           </p>
         </div>
         <div class="highlight-card">
           <div class="highlight-number">/ 03</div>
-          <h3 class="highlight-title">【강점 3 제목】</h3>
+          <h3 class="highlight-title">설계부터 배포까지</h3>
           <p class="highlight-text">
-            【강점 3에 대한 설명을 입력하세요.】
+            DB 모델링과 API 설계부터 CI/CD 구축, 클라우드 배포와 도메인
+            연결까지, 서비스가 만들어지고 운영되는 생명주기 전체를 경험하고
+            전체 흐름을 이해한 상태에서 개발합니다.
           </p>
         </div>
       </div>
@@ -120,48 +131,124 @@
     <div class="container">
       <div class="section-header">
         <div>
-          <div class="section-tag">02 / Skills</div>
-          <h2 class="section-title">기술 스택</h2>
+          <div class="section-tag">02 / How I Work</div>
+          <h2 class="section-title">일하는 방식</h2>
         </div>
         <p class="section-description">
-          【다루는 기술 분야를 한 문장으로 소개하세요.】
-          <a href="skills.html" style="color: var(--burgundy); font-weight: 500;">→ 전체 스킬 보기</a>
+          혼자 빨리 가기보다, 팀과 함께 옳은 방향으로 가는 것을
+          중요하게 생각합니다.
         </p>
       </div>
 
-      <div class="skills-preview">
-        <div class="skill-tag"><div class="name">【기술 1】</div></div>
-        <div class="skill-tag"><div class="name">【기술 2】</div></div>
-        <div class="skill-tag"><div class="name">【기술 3】</div></div>
-        <div class="skill-tag"><div class="name">【기술 4】</div></div>
-        <div class="skill-tag"><div class="name">【기술 5】</div></div>
-        <div class="skill-tag"><div class="name">【기술 6】</div></div>
-        <div class="skill-tag"><div class="name">【기술 7】</div></div>
-        <div class="skill-tag"><div class="name">【기술 8】</div></div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="icon">01</div>
+          <h4>기획이 먼저다</h4>
+          <p>
+            기획이 단단해야 ERD와 사용자 플로우가 명확해지고, 그 위에서
+            코드 설계가 구체화된다고 믿습니다.
+          </p>
+        </div>
+        <div class="value-card">
+          <div class="icon">02</div>
+          <h4>가정하지 않는다</h4>
+          <p>
+            "아마 이럴 것이다"로 넘어가지 않고, 실제 데이터와 동작을
+            직접 확인한 뒤 다음 단계로 갑니다.
+          </p>
+        </div>
+        <div class="value-card">
+          <div class="icon">03</div>
+          <h4>반복은 자동화한다</h4>
+          <p>
+            빌드·배포처럼 반복되는 일은 CI/CD와 배치로 자동화해,
+            실수를 줄이고 만드는 데 집중합니다.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="cta">
+  <section class="section">
     <div class="container">
-      <h2>함께 일할 <span class="accent">기회</span>를 찾고 있습니다.</h2>
-      <p>【연락을 유도하는 한 문장을 입력하세요.】</p>
-      <a href="contact.html" class="btn btn-primary">Get in touch</a>
+      <div class="section-header">
+        <div>
+          <div class="section-tag">03 / Skills</div>
+          <h2 class="section-title">기술 스택</h2>
+        </div>
+        <p class="section-description">
+          백엔드와 AI를 중심으로, 데이터 수집·API·배포까지 다룹니다.
+        </p>
+      </div>
+
+      <!-- 카테고리별로 기술을 입력하세요. 태그 하나는 <span class="skill-pill">…</span> 입니다.
+           복사/삭제로 개수를 조절하면 됩니다. -->
+      <div class="skill-stack">
+        <div class="skill-row">
+          <h3 class="skill-row-title"><span class="num">/ 01</span>Language</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">Java</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <h3 class="skill-row-title"><span class="num">/ 02</span>Backend</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">Django</span>
+            <span class="skill-pill">Django REST Framework</span>
+            <span class="skill-pill">FastAPI</span>
+            <span class="skill-pill">Spring Boot</span>
+            <span class="skill-pill">OpenAI API (LLM)</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <h3 class="skill-row-title"><span class="num">/ 03</span>Frontend</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">Vue.js</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <h3 class="skill-row-title"><span class="num">/ 04</span>Database</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">SQLite</span>
+            <span class="skill-pill">PostgreSQL</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <h3 class="skill-row-title"><span class="num">/ 05</span>Infra &amp; Cloud</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">Docker</span>
+            <span class="skill-pill">AWS EC2</span>
+            <span class="skill-pill">Linux</span>
+            <span class="skill-pill">Nginx</span>
+            <span class="skill-pill">Gunicorn</span>
+            <span class="skill-pill">GitHub Actions</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <h3 class="skill-row-title"><span class="num">/ 06</span>Tools</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">Git</span>
+            <span class="skill-pill">GitHub</span>
+            <span class="skill-pill">Notion</span>
+            <span class="skill-pill">Figma</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
+      <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
         <div class="footer-brand">
           <a href="index.html" class="logo">KIM<span class="accent">.</span>JOOWOO</a>
-          <p>【푸터 한 줄 소개를 입력하세요.】</p>
+          <p>백엔드와 AI로 서비스를 만드는 개발자 김주우입니다.</p>
         </div>
         <div class="footer-col">
           <h5>Navigate</h5>
           <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="skills.html">Skills</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="experience.html">Experience</a></li>
           </ul>
@@ -170,16 +257,8 @@
           <h5>Contact</h5>
           <ul>
             <li><a href="mailto:kimzoo5676@gmail.com">Email</a></li>
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">LinkedIn</a></li>
-            <li><a href="#">Blog</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Resume</h5>
-          <ul>
-            <li><a href="#">Download CV</a></li>
-            <li><a href="contact.html">Hire Me</a></li>
+            <li><a href="https://github.com/kimzoo5676-del" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://velog.io/@zooouu/posts" target="_blank" rel="noopener">Blog</a></li>
           </ul>
         </div>
       </div>
@@ -191,4 +270,5 @@
   </footer>
 
 </body>
+
 </html>

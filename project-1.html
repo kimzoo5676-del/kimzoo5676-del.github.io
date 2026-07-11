@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OURWISH | 김주우</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">KIM<span class="accent">.</span>JOOWOO</a>
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+          <li><a href="experience.html">Experience</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-toggle" onclick="document.getElementById('navMenu').classList.toggle('open')">≡</button>
+    </div>
+  </header>
+
+  <section class="page-header">
+    <div class="container">
+      <div class="page-header-grid">
+        <div>
+          <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="sep">/</span>
+            <a href="projects.html">Projects</a>
+            <span class="sep">/</span>
+            <span class="current">OURWISH</span>
+          </div>
+        </div>
+        <div>
+          <div class="section-tag">Project Detail</div>
+          <h1 class="section-title">OURWISH</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="project-cover"><img src="ourwish-landing.png" alt="OURWISH 랜딩 페이지" /></div>
+
+      <div class="detail-meta">
+        <div class="item">
+          <div class="label">기간</div>
+          <div class="value">2026.05 — 2026.06 (약 7주)</div>
+        </div>
+        <div class="item">
+          <div class="label">역할</div>
+          <div class="value">백엔드 · AI</div>
+        </div>
+        <div class="item">
+          <div class="label">한 줄 요약</div>
+          <div class="value">목표 금액·기간·우대조건을 입력하면 조건에 맞는 예·적금을 추천하고, AI가 약관을 쉽게 풀어 설명하는 금융 서비스</div>
+        </div>
+        <div class="item">
+          <div class="label">Links</div>
+          <div class="value detail-links">
+            <a href="https://github.com/Our-Wish/ourwish" class="btn btn-outline" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://our-wish.site/" class="btn btn-outline" target="_blank" rel="noopener">Live Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 56px;">
+        <div class="stack-group">
+          <div class="stack-label">Frontend</div>
+          <div class="project-stack">
+            <span class="tech-tag">Vue</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">Vite</span>
+            <span class="tech-tag">TailwindCSS</span>
+            <span class="tech-tag">Chart.js</span>
+            <span class="tech-tag">Pinia</span>
+            <span class="tech-tag">Vue Router</span>
+            <span class="tech-tag">Axios</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <div class="stack-label">Backend</div>
+          <div class="project-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Django</span>
+            <span class="tech-tag">DRF</span>
+            <span class="tech-tag">JWT</span>
+            <span class="tech-tag">SQLite</span>
+            <span class="tech-tag">Swagger</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <div class="stack-label">Infra &amp; AI</div>
+          <div class="project-stack">
+            <span class="tech-tag">Vercel</span>
+            <span class="tech-tag">AWS EC2</span>
+            <span class="tech-tag">Nginx</span>
+            <span class="tech-tag">Gunicorn</span>
+            <span class="tech-tag">GitHub Actions</span>
+            <span class="tech-tag">GMS</span>
+            <span class="tech-tag">YouTube</span>
+            <span class="tech-tag">Kakao Map</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-block">
+        <h2>배경 &amp; 문제</h2>
+        <p>
+          예·적금을 고를 때 은행마다 제각각인 우대조건과 약관은 사회초년생이
+          이해하기 어렵습니다. 복잡한 금리 조건을 대신 계산·정리해서,
+          "내가 실제로 얼마를 받는지"를 직관적으로 보여주는 서비스를 만들고자
+          했습니다. 저는 백엔드와 AI를 맡아 데이터 수집부터 추천 로직,
+          LLM 연동, 배포까지 담당했습니다.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h2>한 일</h2>
+        <ul>
+          <li>Django REST Framework로 REST API와 JWT 인증을 구현하고, 회원·상품·가입·찜·커뮤니티 도메인의 DB(ERD)를 모델링했습니다.</li>
+          <li>금융감독원(FSS) API에서 예·적금 상품 766건을 수집하고, 조회 프로필 기반 필터링 + 세후 실수령액 계산·정렬로 추천 알고리즘을 설계·구현했습니다.</li>
+          <li>LLM(GPT-5-mini)을 세 가지로 연동했습니다 — ① 은행별 자유 텍스트 우대조건을 표준 태그(JSON)로 배치 구조화, ② 약관을 쉬운 말로 요약, ③ 상품 상세 실시간 스트리밍 챗봇(근거 한정으로 할루시네이션 방지).</li>
+          <li>GitHub Actions로 CI/CD를 구성하고 AWS EC2(Nginx·Gunicorn)에 배포한 뒤 실제 도메인을 연결해, 로컬에서 프로덕션까지 서비스 생명주기 전체를 경험했습니다.</li>
+        </ul>
+      </div>
+
+      <div class="detail-block">
+        <h2>결과 &amp; 배운 점</h2>
+        <p>
+          삼성청년SW·AI아카데미 1학기 관통 프로젝트 <b>최우수상(서울2반 1등)</b>을 받았습니다.
+          조건 입력 한 번으로 766개 상품을 세후 실수령액 기준으로 정렬해
+          추천하는 서비스를 배포했습니다(<a href="https://our-wish.site/" target="_blank" rel="noopener">our-wish.site</a>).
+          우대조건 구조화를 처음엔 정규식으로 시도했지만 은행별 표현 차이로
+          누락·오탐이 컸고, 실제 데이터를 직접 확인해 보편적인 우대조건만
+          표준 태그로 좁히는 방향으로 전환했습니다. 이 과정에서
+          <b>가정하지 말고 데이터를 확인한다</b>는 원칙과, LLM을 배치·실시간으로
+          나눠 응답 속도와 비용을 관리하는 방법을 배웠습니다.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h2>스크린샷</h2>
+        <div class="detail-shots">
+          <div class="shot"><img src="ourwish-recommendation.png" alt="상품 추천 결과 — 세후 실수령액 기준 정렬" /></div>
+          <div class="shot"><img src="ourwish-product-detail.png" alt="상품 상세 — AI 쉬운말 요약" /></div>
+        </div>
+      </div>
+
+      <a href="projects.html" class="project-link" style="border-top:none; padding-top:0;">← 프로젝트 목록으로</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">KIM<span class="accent">.</span>JOOWOO</a>
+          <p>백엔드와 AI로 서비스를 만드는 개발자 김주우입니다.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Navigate</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="experience.html">Experience</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="mailto:kimzoo5676@gmail.com">Email</a></li>
+            <li><a href="https://github.com/kimzoo5676-del" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://velog.io/@zooouu/posts" target="_blank" rel="noopener">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Joowoo Kim<span class="accent-dot">.</span> All rights reserved.</span>
+        <span>Designed &amp; Developed with care.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
