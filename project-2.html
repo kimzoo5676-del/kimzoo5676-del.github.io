@@ -127,6 +127,50 @@
       </div>
 
       <div class="detail-block">
+        <h2>알고리즘 파이프라인 — AI와 함께 만든 과정까지</h2>
+        <p style="margin-bottom: 16px;">
+          아래쪽이 매 틱 실행되는 주행 알고리즘, 위쪽이 그 알고리즘의 구조와
+          파라미터를 결정한 <b>AI 가설 검정 루프</b>입니다. 여유 폭·조향 계수·브레이크
+          임계값 같은 숫자 하나하나가 감이 아니라 이 루프를 돌려 얻은 값입니다 —
+          분석은 AI가, 판단과 반영은 측정을 근거로 제가 했습니다.
+        </p>
+        <div class="mermaid-wrap">
+          <pre class="mermaid">
+flowchart TD
+  subgraph LOOP["AI 가설 검정 루프 — 알고리즘을 만든 과정"]
+    HYP(가설 수립 — AI와 주행 로그 분석) --> IMP(구현 — 한 번에 변수 하나만)
+    IMP --> MEA(측정 — 랩타임 · 완주 여부)
+    MEA --> JUD{뚜렷한 개선인가?}
+    JUD -->|채택| DOC(인계 문서에 검증된 인과 기록)
+    JUD -->|기각| DOC2(기각 사유 기록 — 같은 길 두 번 안 감)
+    DOC --> HYP
+    DOC2 --> HYP
+  end
+  LOOP ==>|구조 · 파라미터 결정| TICK
+  subgraph TICK["주행 알고리즘 — 매 틱 실행"]
+    SEN(센싱 — 위치·속도·전방 커브각·장애물) --> MRG(장애물 통합 — 느린 상대 차량도 장애물로)
+    MRG --> GAP(빈 공간 탐색 — 도로를 0.1m 격자로 놓고<br/>장애물 여유 폭을 지운 뒤 가장 가까운 빈 공간을 목표로)
+    GAP --> STR(조향 — 전방 커브각 추종 + 목표 지점 보정<br/>급커브는 회전 반경 기하로 전환)
+    STR --> SPD(속도 — 기본 풀스로틀 · 임계값 기반 감속)
+    SPD --> CHK{충돌 · 역주행?}
+    CHK -->|정상| SEN
+    CHK -->|사고| REC(복구 상태 머신 — 후진 탈출 → 전진 복귀)
+    REC --> SEN
+  end
+  classDef default fill:#f7f5fa,stroke:#c9c2d6,color:#171717;
+  classDef judge fill:#f9edf0,stroke:#800020,color:#800020;
+  class JUD,CHK judge;
+          </pre>
+        </div>
+        <p>
+          회피 로직이 좋은 예입니다. 장애물 배치마다 분기하던 코드를 <b>"가장
+          가까운 빈 공간으로 향한다"</b> 하나로 통일하는 가설을 세웠고, 측정에서
+          랩타임과 완주율이 함께 개선돼 채택했습니다. 반대로 회피 여유 확대나
+          회피 구간 감속처럼 그럴듯한 가설은 측정 후 기각하고 기록만 남겼습니다.
+        </p>
+      </div>
+
+      <div class="detail-block">
         <h2>결과 &amp; 배운 점</h2>
         <p>
           777명, 278팀이 참가한 대회에서 <b>2위</b>로 마쳤습니다. 특별한
@@ -180,5 +224,21 @@
   </footer>
 
   <script src="script.js"></script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'base',
+      themeVariables: {
+        fontFamily: "'Pretendard Variable', Pretendard, sans-serif",
+        fontSize: '14px',
+        primaryColor: '#f7f5fa',
+        primaryTextColor: '#171717',
+        primaryBorderColor: '#c9c2d6',
+        lineColor: '#737373',
+        edgeLabelBackground: '#ffffff',
+      },
+    });
+  </script>
 </body>
 </html>
