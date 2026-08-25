@@ -1434,6 +1434,11 @@ img {
   justify-content: center;
 }
 
+/* 가로로 긴 그래프는 축소되면 글자가 안 보이므로, 원래 크기를 지키고 가로 스크롤 */
+.mermaid-wrap.wide .mermaid {
+  min-width: 1750px;
+}
+
 /* 상세 페이지 표 */
 .detail-table {
   width: 100%;
