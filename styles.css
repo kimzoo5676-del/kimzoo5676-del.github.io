@@ -1395,3 +1395,90 @@ img {
     scroll-behavior: auto;
   }
 }
+
+/* ===== 프로젝트 상세 — 다이어그램·표·폰 스크린샷 (MODI에서 사용) ===== */
+/* 아이소메트릭 아키텍처 그림: 좁은 화면에서는 가로 스크롤 */
+.arch-figure {
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  padding: 8px;
+  overflow-x: auto;
+  margin-bottom: 12px;
+}
+
+.arch-figure svg {
+  width: 100%;
+  min-width: 860px;
+  height: auto;
+  display: block;
+}
+
+.figure-caption {
+  font-size: 13px;
+  color: var(--gray-500);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+/* mermaid 다이어그램 컨테이너 */
+.mermaid-wrap {
+  border: 1px solid var(--gray-200);
+  background: var(--gray-50);
+  padding: 24px 16px;
+  overflow-x: auto;
+  margin: 8px 0 12px;
+}
+
+.mermaid-wrap .mermaid {
+  display: flex;
+  justify-content: center;
+}
+
+/* 상세 페이지 표 */
+.detail-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 16px 0 8px;
+}
+
+.detail-table th,
+.detail-table td {
+  border: 1px solid var(--gray-200);
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.detail-table th {
+  background: var(--gray-50);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.detail-table td {
+  color: var(--gray-700);
+}
+
+/* 세로형(폰) 스크린샷 4열 */
+.detail-shots.phones {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.detail-shots.phones .shot {
+  aspect-ratio: 9 / 19.5;
+}
+
+@media (max-width: 960px) {
+  .detail-shots.phones {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .detail-shots.phones {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
