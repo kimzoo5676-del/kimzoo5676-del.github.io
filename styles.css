@@ -158,9 +158,10 @@ img {
   border-bottom: 1px solid var(--gray-200);
 }
 
+/* 왼쪽이 조금 넓다 — 히어로 제목 셋째 줄이 한 줄로 떨어지려면 528px로는 모자란다 */
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.12fr 1fr;
   gap: 80px;
   align-items: center;
 }
@@ -321,8 +322,15 @@ img {
 }
 
 /* 제목이 긴 섹션 헤더(About)용 — 제목 칸을 넓게 */
+/* 제목이 긴 섹션은 2단을 쓰지 않는다 — 제목을 한 줄 폭으로 두고 설명을 아래에 놓는다.
+   2단(476px)에서는 긴 제목이 줄마다 두 동강 난다. */
 .section-header.wide-title {
-  grid-template-columns: 1.6fr 2fr;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.section-header.wide-title .section-description {
+  max-width: 760px;
 }
 
 .section-description {
