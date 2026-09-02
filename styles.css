@@ -158,12 +158,23 @@ img {
   border-bottom: 1px solid var(--gray-200);
 }
 
-/* 왼쪽이 조금 넓다 — 히어로 제목 셋째 줄이 한 줄로 떨어지려면 528px로는 모자란다 */
+/* 왼쪽이 조금 넓다 — 히어로 제목 셋째 줄이 한 줄로 떨어지려면 528px로는 모자란다.
+   minmax(0, …)이 필요하다: 그냥 1fr이면 프로필 카드가 자기 최소 폭을 지키느라
+   제목 칸을 319px까지 밀어낸다(1440px에서 실측). */
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.12fr 1fr;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
   gap: 80px;
   align-items: center;
+}
+
+/* 1150px 아래에서는 제목과 프로필 카드가 나란히 못 들어간다 —
+   억지로 두면 카드가 넘쳐 가로 스크롤이 생긴다(1024·961px 실측). 그래서 위아래로 쌓는다. */
+@media (max-width: 1150px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
 }
 
 .hero-label {
