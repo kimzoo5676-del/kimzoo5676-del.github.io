@@ -181,7 +181,9 @@ img {
 .hero-title {
   font-family: 'Roboto', 'Pretendard Variable', Pretendard, sans-serif;
   font-weight: 900;
-  font-size: 64px;
+  /* 화면이 좁아지면 같이 줄어든다 — 64px 고정이면 노트북 폭(961~1150px)에서
+     컨테이너만 줄어들어 제목 셋째 줄이 밀려난다 */
+  font-size: clamp(48px, 5.2vw, 64px);
   line-height: 1.05;
   letter-spacing: -0.03em;
   margin-bottom: 24px;
