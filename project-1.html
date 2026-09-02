@@ -123,10 +123,15 @@
       <div class="detail-block">
         <h2>배경 &amp; 문제</h2>
         <p>
-          예·적금을 고르다 보면 은행마다 우대조건 표현이 제각각이고, 약관을
-          읽어도 결국 내가 얼마를 받는지 알기 어렵습니다. 그 계산과 해석을
-          대신해 주는 서비스를 만들기로 했습니다. 2인 팀에서 백엔드와 AI를
-          전담해, 데이터 수집부터 추천 로직, LLM 연동, 배포까지 맡았습니다.
+          예·적금 상품을 찾아봤을 때, 최고 금리 순으로는 조회할 수 있었지만
+          내가 결국 얼마를 받는지는 와닿지 않았습니다. 그래서 최고 금리만
+          보여주는 것이 아니라 사용자가 최종적으로 받게 되는 금액을 같이
+          보여주고, 상품 속 어려운 금융 용어는 쉬운 말 풀이와 AI 챗봇으로
+          설명하는 서비스를 만들었습니다.
+        </p>
+        <p>
+          2인 팀에서 백엔드·인프라·AI를 전담해, 데이터 수집부터 추천 로직,
+          LLM 연동, 배포까지 맡았습니다.
         </p>
       </div>
 
@@ -223,7 +228,7 @@
 <text x="1345" y="385" text-anchor="start" font-size="10.5" font-weight="600" fill="#6b6b75" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">상품·옵션 수집</text>
 <text x="1105" y="705" text-anchor="middle" font-size="10.5" font-weight="600" fill="#6b6b75" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">금리·영상 프록시 — API 키는 서버에만</text>
 <text x="636" y="692" text-anchor="start" font-size="11" font-weight="600" fill="#800020" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">develop push → CI 통과 시 자동 배포</text>
-<text x="636" y="710" text-anchor="start" font-size="11" font-weight="600" fill="#800020" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">EC2 self-hosted 러너 — 롤백 지점 기록</text>
+<text x="636" y="710" text-anchor="start" font-size="11" font-weight="600" fill="#800020" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">EC2 안에 설치한 러너가 직접 배포</text>
 <text x="637" y="308" text-anchor="middle" font-size="14.5" font-weight="700" fill="#171717" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">nginx</text>
 <text x="637" y="325" text-anchor="middle" font-size="10.5" font-weight="500" fill="#737373" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">TLS 종료 · 리버스 프록시</text>
 <text x="839" y="385" text-anchor="middle" font-size="14.5" font-weight="700" fill="#171717" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">Django + DRF</text>
@@ -248,12 +253,10 @@
 </svg>
         </div>
         <p class="figure-caption">
-          프론트(Vercel)와 백엔드(AWS EC2)를 분리 배포했습니다. EC2 위에서 nginx가 TLS를
-          종료해 Django(gunicorn·systemd)로 프록시하고, 금리·영상·LLM 같은 외부 API는 전부
-          백엔드가 중계해 API 키를 서버에만 둡니다 — 예외는 클라이언트 렌더링이 필수라
-          도메인 제한 키로 브라우저가 직접 로드하는 지도 SDK 하나입니다. 배포는 GitHub
-          Actions가 EC2에 설치된 self-hosted 러너로 서버에서 직접 수행하며, 실패에 대비해
-          롤백 지점을 먼저 기록합니다. 색상은 담당 영역 기준입니다.
+          프론트는 Vercel에, 백엔드는 AWS EC2에 나눠 올렸습니다. EC2에서는 nginx가
+          HTTPS를 받아 Django로 넘기고, Django는 gunicorn으로 돌리면서 서버가 켜질 때
+          자동 실행되게 등록해뒀습니다. 상품이 766건이고 서버가 한 대라 DB는 SQLite로
+          정했습니다. 색상은 담당 영역 기준입니다.
         </p>
       </div>
 
@@ -263,7 +266,7 @@
           <li>Django REST Framework로 REST API와 JWT 인증을 구현하고, 회원·상품·가입·찜·커뮤니티 도메인의 DB(ERD)를 모델링했습니다.</li>
           <li>금융감독원(FSS) API에서 예·적금 상품 766건을 수집하고, 조회 프로필 기반 필터링 + 세후 실수령액 계산·정렬로 추천 알고리즘을 설계·구현했습니다.</li>
           <li>LLM(GPT-5-mini)을 세 가지로 연동했습니다 — ① 은행별 자유 텍스트 우대조건을 8개 표준 태그(JSON)로 배치 구조화(요청마다 LLM을 부르면 응답이 수십 초로 느려져, 미리 가공해 추천은 DB 쿼리만으로 즉시 응답), ② 약관을 쉬운 말로 요약, ③ 해당 상품 데이터로 근거를 한정한 실시간 스트리밍 챗봇.</li>
-          <li>GitHub Actions로 CI/CD를 구성하고 AWS EC2(Nginx·Gunicorn)에 배포한 뒤 실제 도메인을 연결해, 로컬에서 프로덕션까지 서비스 생명주기 전체를 경험했습니다.</li>
+          <li>GitHub Actions로 배포를 자동화하고 AWS EC2에 올린 뒤 도메인을 연결했습니다. 배포는 EC2 안에 러너를 설치해 서버가 직접 하게 했습니다. GitHub에 서버 접속 키를 두지 않아도 되는 대신, 빌드가 서비스와 같은 서버 자원을 씁니다.</li>
         </ul>
       </div>
 
