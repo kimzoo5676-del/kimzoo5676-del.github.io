@@ -47,6 +47,10 @@ body {
   background: var(--white);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  /* 한글은 기본값이면 단어 중간에서 잘린다("직/접"). 띄어쓰기에서만 줄을 바꾼다.
+     overflow-wrap은 띄어쓰기 없는 긴 문자열(URL 등)이 칸을 넘지 않게 하는 안전장치. */
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 a {
@@ -342,8 +346,9 @@ img {
   gap: 20px;
 }
 
+/* 837px이면 현재 문구가 한 줄에 들어간다. 760px으로 조이면 마지막 단어만 다음 줄로 밀린다. */
 .section-header.wide-title .section-description {
-  max-width: 760px;
+  max-width: 900px;
 }
 
 .section-description {
