@@ -1315,7 +1315,8 @@ img {
   .hero { padding: 60px 0; }
   .section { padding: 60px 0; }
   .hero-title { font-size: 36px; }
-  .section-title { font-size: 28px; }
+  /* 28px에서는 긴 제목이 마지막에 두세 글자만 남기고 끊긴다(375px 실측) */
+  .section-title { font-size: 24px; }
   .page-header .section-title { font-size: 32px; }
 
   .highlights-grid,
