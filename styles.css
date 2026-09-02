@@ -351,6 +351,20 @@ img {
   max-width: 900px;
 }
 
+/* 줄 길이를 고르게 나눈다 — 없으면 768~900px 구간에서 첫 줄이 꽉 차고
+   마지막 줄에 두세 단어만 남는다(883px에서 760/73으로 실측). balance를 주면 419/414가 된다.
+   한 줄에 들어가는 폭에서는 그대로 한 줄이다. 미지원 브라우저는 무시하므로 안전하다. */
+.section-description {
+  text-wrap: balance;
+}
+
+/* 본문 문단은 balance 대신 pretty — 마지막 줄에 한 단어만 남는 것을 막는다 */
+.hero-subtitle,
+.highlight-text,
+.value-card p {
+  text-wrap: pretty;
+}
+
 .section-description {
   font-size: 16px;
   color: var(--gray-700);
@@ -1322,6 +1336,10 @@ img {
   .hero-title { font-size: 36px; }
   /* 28px에서는 긴 제목이 마지막에 두세 글자만 남기고 끊긴다(375px 실측) */
   .section-title { font-size: 24px; }
+  /* 320px(구형 소형 기기)에서는 36px로도 "백엔드/인프라 개발자."가 넘쳐 4줄이 된다 */
+  @media (max-width: 360px) {
+    .hero-title { font-size: 32px; }
+  }
   .page-header .section-title { font-size: 32px; }
 
   .highlights-grid,
