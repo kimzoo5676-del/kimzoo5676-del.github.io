@@ -1458,6 +1458,11 @@ img {
   display: block;
 }
 
+/* 가로로 긴 도식은 폭에 맞춰 줄이면 글자가 안 보인다 — 원래 크기를 지키고 가로 스크롤 */
+.arch-figure.wide svg {
+  min-width: 1990px;
+}
+
 .figure-caption {
   font-size: 13px;
   color: var(--gray-500);
