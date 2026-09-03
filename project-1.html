@@ -227,8 +227,8 @@
 <text x="1262" y="540" text-anchor="middle" font-size="10.5" font-weight="600" fill="#7a6fa0" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">(배치) 우대조건 태그 · 쉬운말 요약</text>
 <text x="1345" y="385" text-anchor="start" font-size="10.5" font-weight="600" fill="#6b6b75" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">상품·옵션 수집</text>
 <text x="1105" y="705" text-anchor="middle" font-size="10.5" font-weight="600" fill="#6b6b75" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">금리·영상 프록시 — API 키는 서버에만</text>
-<text x="636" y="692" text-anchor="start" font-size="11" font-weight="600" fill="#800020" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">develop push → CI 통과 시 자동 배포</text>
-<text x="636" y="710" text-anchor="start" font-size="11" font-weight="600" fill="#800020" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">EC2 안에 설치한 러너가 직접 배포</text>
+<text x="636" y="692" text-anchor="start" font-size="11" font-weight="600" fill="#800020" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">develop push → 러너가 배포</text>
+<text x="636" y="710" text-anchor="start" font-size="11" font-weight="600" fill="#800020" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">헬스 체크 실패 시 직전 커밋으로 롤백</text>
 <text x="637" y="308" text-anchor="middle" font-size="14.5" font-weight="700" fill="#171717" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">nginx</text>
 <text x="637" y="325" text-anchor="middle" font-size="10.5" font-weight="500" fill="#737373" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">TLS 종료 · 리버스 프록시</text>
 <text x="839" y="385" text-anchor="middle" font-size="14.5" font-weight="700" fill="#171717" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">Django + DRF</text>
@@ -266,7 +266,7 @@
           <li>JWT로 로그인 기능을 구현했습니다.</li>
           <li>금융감독원 API에서 예·적금 상품 766건을 수집했습니다. 입력한 조건으로 상품을 선별한 뒤, 세금을 뺀 실수령액을 계산해 그 금액순으로 정렬했습니다.</li>
           <li>LLM(GPT-5-mini)을 세 곳에 사용했습니다. 은행마다 다르게 쓴 우대조건을 8개 표준 태그로 바꾸고, 약관을 쉬운 말로 요약하고, 해당 상품 데이터만 근거로 답하는 챗봇을 만들었습니다.</li>
-          <li>GitHub Actions로 배포를 자동화하고 AWS EC2에 올린 뒤 도메인을 연결했습니다. 배포는 EC2 안에 러너를 설치해 서버가 직접 하게 했습니다. GitHub에 서버 접속 키를 두지 않아도 되는 대신, 빌드가 서비스와 같은 서버 자원을 씁니다.</li>
+          <li>GitHub Actions로 배포를 자동화하고 AWS EC2에 올린 뒤 도메인을 연결했습니다. 배포는 EC2 안에 러너를 설치해 서버가 직접 하게 했습니다. GitHub에 서버 접속 키를 두지 않아도 되는 대신, 빌드가 서비스와 같은 서버 자원을 씁니다. 배포 뒤 운영 도메인이 응답하는지 확인하고, 실패하면 직전 커밋으로 되돌립니다.</li>
         </ul>
       </div>
 
