@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
-  <link rel="stylesheet" href="styles.css?v=20260904a" />
+  <link rel="stylesheet" href="styles.css?v=20260904b" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23800020'/%3E%3Ctext x='32' y='45' font-family='Arial, sans-serif' font-size='30' font-weight='900' fill='%23ffffff' text-anchor='middle'%3EJK%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
@@ -278,7 +278,7 @@
         <h2>한 일</h2>
         <ul>
           <li><b>인프라 설계·구축</b> — Caddy(TLS 종료)·Spring Boot 컨테이너 두 개(무중단 배포용)·PostgreSQL·Redis·MinIO·FastAPI AI 서버를 단일 ARM 인스턴스에 Docker Compose로 구성했습니다. 인증서를 가진 Caddy는 앱과 다른 Compose 파일에 두어, 앱을 다시 배포해도 Caddy 컨테이너는 그대로 두고 설정만 다시 읽게 했습니다.</li>
-          <li><b>CI/CD</b> — OURWISH에서는 EC2 안에 러너를 설치해 서버가 스스로 빌드하고 배포했습니다. MODI는 반대로, 러너를 GitHub에 두고 러너가 SSH로 서버에 소스를 보냅니다. 이러면 서버에 GitHub 자격증명을 하나도 두지 않아도 됩니다. 빌드는 서버에서 합니다 — 서버가 ARM이라 러너에서 만든 이미지는 뜨지 않습니다. 테스트는 앱·서버·AI 중 바뀐 곳만 돌고, main에 push하면 테스트를 통과해야 배포가 시작됩니다.</li>
+          <li><b>CI/CD</b> — GitHub Actions로 테스트와 배포를 자동화했습니다. 앱·서버·AI 중 바뀐 곳만 테스트하고, main에 push하면 테스트를 통과해야 배포가 시작됩니다. 러너가 SSH로 서버에 소스를 보내면 서버에서 빌드합니다.</li>
           <li><b>무중단 배포</b> — Spring Boot 컨테이너 두 개를 번갈아 쓰는 blue/green 방식입니다. 트래픽을 받고 있는 쪽이 blue라면 새 버전은 green에 띄우고, 제대로 떴는지 확인한 뒤에 Caddy 설정 한 줄을 바꿔 트래픽을 green으로 옮깁니다. green이 안 뜨면 옮기지 않아서 사용자는 blue를 그대로 씁니다.</li>
           <li><b>AI 서버 개발</b> — 투두 추천 전용 FastAPI 서버를 구축했습니다. LangGraph로 자료 선별 → 후보 생성 → 검수 → 의미 중복 제거 순서의 파이프라인을 설계했고, 자료 선별과 중복 제거에는 임베딩을 썼습니다. 순수 함수와 LLM 호출을 갈라놓아 API 크레딧 없이 로직 전체를 테스트합니다.</li>
           <li><b>자료 크롤링과 요약·태깅</b> — 링크를 올리면 서버가 크롤링해서 제목·본문·썸네일·출처를 가져옵니다. 서버가 남이 준 주소로 요청을 보내는 구조라, 사설망 주소로는 못 나가게 막고 리다이렉트도 따라가지 않습니다. 크롤링한 본문으로 LLM을 호출해 요약과 태그 3~5개를 만듭니다.</li>
@@ -328,7 +328,7 @@
 <text x="571" y="152" text-anchor="middle" font-size="10.5" font-weight="600" fill="#800020">사용자에게 바로 응답</text>
 <rect x="706" y="202" width="160" height="96" rx="4" fill="#f7f5fa" stroke="#c9c2d6" stroke-width="1.2"/>
 <text x="719" y="227" font-size="13.5" font-weight="700" fill="#171717">24시간 캐시 조회</text>
-<text x="719" y="249" font-size="10.5" font-weight="500" fill="#737373">같은 URL을 최근에 긁었나</text>
+<text x="719" y="249" font-size="10.5" font-weight="500" fill="#737373">같은 URL을 이미 크롤링했나</text>
 <rect x="926" y="202" width="160" height="96" rx="4" fill="#f9edf0" stroke="#800020" stroke-width="1.2"/>
 <text x="939" y="227" font-size="13.5" font-weight="700" fill="#800020">크롤러 선택</text>
 <text x="939" y="249" font-size="10.5" font-weight="500" fill="#737373">호스트를 보고 고른다</text>
@@ -389,12 +389,12 @@
 </svg>
 <!--CRAWL_SVG_END-->
         </div>
-        <p class="figure-caption">
-          점선 안쪽은 등록 응답을 보낸 뒤 도는 구간입니다. 사용자는 공유한 즉시
-          응답을 받고, 크롤링과 LLM 호출 세 번은 그 뒤에 따로 돕니다. 같은 링크를
-          24시간 안에 다시 공유하면 아래쪽 점선 화살표처럼 앞서 긁어 둔 결과를
-          그대로 써서 크롤링과 LLM을 건너뜁니다.
-        </p>
+        <ul class="figure-points">
+          <li><b>주소 검사 — SSRF 방어</b><span>http/https만 허용. 사설망·루프백 IP 차단. 리다이렉트는 따라가지 않음.</span></li>
+          <li><b>등록과 분석 분리 — 비동기</b><span>등록 즉시 응답. 크롤링과 LLM 3회는 별도 스레드에서.</span></li>
+          <li><b>사이트별 크롤러 + 공통 폴백</b><span>Instagram·YouTube·Naver Map은 전용 크롤러. 맡을 곳이 없으면 공통 크롤러.</span></li>
+          <li><b>24시간 캐시</b><span>같은 URL을 다시 공유하면 앞서 크롤링한 결과 재사용 → 크롤링 0회, LLM 0회.</span></li>
+        </ul>
       </div>
 
       <div class="detail-block">
