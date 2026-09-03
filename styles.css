@@ -228,12 +228,6 @@ img {
   background: var(--gray-50);
 }
 
-.hero-info-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-}
-
 .info-block .label {
   font-size: 11px;
   font-weight: 700;
@@ -251,10 +245,6 @@ img {
 
 .info-block .value.burgundy {
   color: var(--burgundy);
-}
-
-.info-block.full {
-  grid-column: 1 / -1;
 }
 
 /* ===== Buttons ===== */
@@ -447,103 +437,6 @@ img {
   line-height: 1.7;
 }
 
-/* ===== Skills (homepage preview) ===== */
-.skills-preview {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-
-.skill-tag {
-  border: 1px solid var(--gray-200);
-  padding: 24px 20px;
-  text-align: center;
-  transition: all 0.2s ease;
-}
-
-.skill-tag:hover {
-  border-color: var(--burgundy);
-  background: var(--gray-50);
-}
-
-.skill-tag .name {
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--black);
-}
-
-/* ===== Skills Page ===== */
-.skills-category {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 64px;
-  padding: 60px 0;
-  border-bottom: 1px solid var(--gray-200);
-}
-
-.skills-category:last-child {
-  border-bottom: none;
-}
-
-.skills-category h3 {
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
-
-.skills-category h3 .num {
-  display: block;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--burgundy);
-  letter-spacing: 0.2em;
-  margin-bottom: 12px;
-}
-
-.skill-items {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
-}
-
-.skill-item {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.skill-item-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.skill-item-name {
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.skill-item-level {
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--burgundy);
-  letter-spacing: 0.1em;
-}
-
-.skill-bar {
-  height: 4px;
-  background: var(--gray-200);
-  position: relative;
-}
-
-.skill-bar-fill {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  background: var(--burgundy);
-}
-
 /* ===== Projects ===== */
 .project-grid {
   display: grid;
@@ -682,6 +575,12 @@ img {
   transition: transform 0.2s ease;
 }
 
+/* 상세 페이지 맨 아래 "목록으로" — 위 구분선 없이 */
+.project-link.back-link {
+  border-top: none;
+  padding-top: 0;
+}
+
 .project-card:hover .arrow {
   transform: translateX(4px);
 }
@@ -758,140 +657,8 @@ img {
   margin-bottom: 6px;
 }
 
-/* ===== Contact Page ===== */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: start;
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.contact-item {
-  border-bottom: 1px solid var(--gray-200);
-  padding-bottom: 24px;
-}
-
-.contact-item .label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--burgundy);
-  margin-bottom: 8px;
-}
-
-.contact-item .value {
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--black);
-}
-
-.contact-form {
-  border: 1px solid var(--gray-200);
-  padding: 40px;
-  background: var(--gray-50);
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--gray-700);
-  margin-bottom: 8px;
-}
-
 .form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 12px 16px;
-  font-family: 'Roboto', 'Pretendard Variable', Pretendard, sans-serif;
-  font-size: 14px;
-  border: 1px solid var(--gray-300);
-  background: var(--white);
-  transition: border-color 0.2s ease;
-}
-
 .form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--burgundy);
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-/* ===== About Page ===== */
-.about-intro {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 64px;
-  margin-bottom: 80px;
-}
-
-.about-image {
-  aspect-ratio: 3 / 4;
-  background: var(--gray-100);
-  position: relative;
-  overflow: hidden;
-}
-
-.about-image::before {
-  content: '';
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 60px;
-  height: 4px;
-  background: var(--burgundy);
-}
-
-.about-image .initial {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Roboto', 'Pretendard Variable', Pretendard, sans-serif;
-  font-weight: 900;
-  font-size: 120px;
-  color: var(--gray-300);
-  letter-spacing: -0.04em;
-}
-
-.about-text h2 {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 24px;
-  letter-spacing: -0.02em;
-  line-height: 1.3;
-}
-
-.about-text p {
-  font-size: 15px;
-  color: var(--gray-700);
-  line-height: 1.8;
-  margin-bottom: 16px;
-}
-
-.about-text .accent {
-  color: var(--burgundy);
-  font-weight: 500;
-}
-
 .values-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -932,43 +699,6 @@ img {
   font-size: 14px;
   color: var(--gray-700);
   line-height: 1.7;
-}
-
-/* ===== CTA ===== */
-.cta {
-  background: var(--black);
-  color: var(--white);
-  padding: 80px 0;
-  text-align: center;
-}
-
-.cta h2 {
-  font-family: 'Roboto', 'Pretendard Variable', Pretendard, sans-serif;
-  font-weight: 900;
-  font-size: 40px;
-  letter-spacing: -0.02em;
-  margin-bottom: 16px;
-}
-
-.cta h2 .accent {
-  color: var(--burgundy-light);
-}
-
-.cta p {
-  font-size: 16px;
-  color: var(--gray-300);
-  margin-bottom: 40px;
-}
-
-.cta .btn-primary {
-  background: var(--burgundy);
-  border-color: var(--burgundy);
-}
-
-.cta .btn-primary:hover {
-  background: var(--white);
-  color: var(--black);
-  border-color: var(--white);
 }
 
 /* ===== Footer ===== */
@@ -1163,7 +893,16 @@ img {
   object-fit: cover;
 }
 
+/* 아래쪽에 정보가 몰린 이미지 — 잘릴 때 위를 버린다 */
+.crop-low {
+  object-position: center 90%;
+}
+
 /* 프로젝트 상세 기술 스택 그룹 (Frontend / Backend / Infra & AI) */
+.detail-stacks {
+  margin-bottom: 56px;
+}
+
 .stack-group {
   margin-bottom: 24px;
 }
@@ -1266,6 +1005,11 @@ img {
   object-fit: cover;
 }
 
+/* 여백이 있는 캡처 — 잘라내지 않고 통째로 보여준다 */
+.detail-shots .shot img.contain {
+  object-fit: contain;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 960px) {
   :root { --gutter: 24px; }
@@ -1281,11 +1025,6 @@ img {
   .about-intro,
   .skills-category,
   .skill-row,
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
   .skill-row { gap: 16px; }
 
   .highlights-grid,
@@ -1468,6 +1207,11 @@ img {
   color: var(--gray-500);
   line-height: 1.7;
   margin-bottom: 32px;
+}
+
+/* 도식 바로 위 소개 문단 */
+.figure-intro {
+  margin-bottom: 16px;
 }
 
 /* 도식 아래 단계별 설계 포인트 — 번호 + 한 줄 설명 */

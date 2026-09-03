@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
-  <link rel="stylesheet" href="styles.css?v=20260904b" />
+  <link rel="stylesheet" href="styles.css?v=20260904c" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23800020'/%3E%3Ctext x='32' y='45' font-family='Arial, sans-serif' font-size='30' font-weight='900' fill='%23ffffff' text-anchor='middle'%3EJK%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
@@ -23,7 +23,7 @@
           <li><a href="experience.html">Experience</a></li>
         </ul>
       </nav>
-      <button class="mobile-toggle" onclick="document.getElementById('navMenu').classList.toggle('open')">≡</button>
+      <button class="mobile-toggle" type="button" aria-label="메뉴" aria-controls="navMenu" aria-expanded="false">≡</button>
     </div>
   </header>
 
@@ -49,8 +49,6 @@
 
   <section class="section">
     <div class="container">
-
-      <!-- 대표 이미지: <img src="shot-4.png" alt="..." /> 로 교체하세요. -->
       <div class="project-cover"><span class="image-text">【대표 이미지】</span></div>
 
       <div class="detail-meta">
@@ -75,7 +73,7 @@
         </div>
       </div>
 
-      <div class="project-stack" style="margin-bottom: 56px;">
+      <div class="project-stack detail-stacks">
         <span class="tech-tag">【기술】</span>
         <span class="tech-tag">【기술】</span>
         <span class="tech-tag">【기술】</span>
@@ -109,7 +107,7 @@
         </div>
       </div>
 
-      <a href="projects.html" class="project-link" style="border-top:none; padding-top:0;">← 프로젝트 목록으로</a>
+      <a href="projects.html" class="project-link back-link">← 프로젝트 목록으로</a>
     </div>
   </section>
 
@@ -142,6 +140,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=20260904c"></script>
 </body>
 </html>

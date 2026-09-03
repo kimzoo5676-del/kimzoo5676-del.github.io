@@ -1,3 +1,16 @@
+// 모바일 메뉴: 햄버거 버튼이 nav 목록을 열고 닫는다.
+// (styles.css의 .nav-menu.open 규칙과 한 쌍)
+(function () {
+  var toggle = document.querySelector('.mobile-toggle');
+  var menu = document.getElementById('navMenu');
+  if (!toggle || !menu) return;
+
+  toggle.addEventListener('click', function () {
+    var open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+})();
+
 // 스크롤 리빌: 요소가 화면에 들어오면 부드럽게 떠오르며 나타납니다.
 // (styles.css의 .reveal / .visible 규칙과 한 쌍)
 (function () {
