@@ -6,6 +6,7 @@
   <title>OURWISH | 김주우</title>
   <meta property="og:type" content="website" />
   <meta property="og:title" content="OURWISH | 김주우" />
+  <meta name="description" content="목표 금액·기간·우대조건을 입력하면 조건에 맞는 예·적금을 추천하고, AI가 약관을 쉽게 풀어 설명하는 금융 서비스" />
   <meta property="og:description" content="목표 금액·기간·우대조건을 입력하면 조건에 맞는 예·적금을 추천하고, AI가 약관을 쉽게 풀어 설명하는 금융 서비스" />
   <meta property="og:url" content="https://kimzoo5676-del.github.io/project-1.html" />
   <meta property="og:image" content="https://kimzoo5676-del.github.io/ourwish-landing.png" />
@@ -254,7 +255,7 @@
         </div>
         <p class="figure-caption">
           프론트는 Vercel에, 백엔드는 AWS EC2에 나눠 올렸습니다. EC2에서는 nginx가
-          HTTPS를 받아 Django로 넘기고 Django는 gunicorn으로 돌리면서 서버가 켜질 때
+          HTTPS를 받아 Django로 넘기고, Django는 gunicorn으로 돌리면서 서버가 켜질 때
           자동 실행되게 등록해뒀습니다. 상품이 766건이고 서버가 한 대라 DB는 SQLite로
           정했습니다. 색상은 담당 영역 기준입니다.
         </p>
@@ -308,7 +309,7 @@ flowchart TD
           우대금리가 적용돼요" 같은 우대조건이 아닌 문구가 조건으로
           잡혔습니다. 은행마다 표현이 달라 비슷한 오류가 계속 나왔습니다.
           LLM 구조화로 바꾼 뒤에도 우대조건이 완벽하게 파싱되지는
-          않았습니다. 배정된 API 예산의 절반을 쓴 시점에 전부 파싱하는 건
+          않았습니다. 배정된 API 예산을 절반쯤 쓴 시점에 전부 파싱하는 건
           포기하고 실제 데이터를 확인하며 보편적인 조건 8개를 표준 태그로
           정했습니다. 가정하지 말고 데이터를 확인한다는
           원칙을 경험하며 배웠습니다. 그 결과 삼성청년SW·AI아카데미 1학기
