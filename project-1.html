@@ -208,12 +208,32 @@
             <div class="story-row"><span class="k">보완</span><span>태그가 맞는 상품만 남기자 후보가 59개뿐이어서, 우대조건이 없는 상품도 통과시켜 약 228개로 늘리고 단위 테스트를 붙였습니다</span></div>
             </div>
           </div>
+        </div>
+        <div class="fig-block" style="margin-top:20px"><img src="img/flow-ourwish-pipeline.png" alt="배치와 실시간 추천 분리" loading="lazy" /></div>
+      </div>
+      <div class="detail-block">
+        <h2>챗봇 답을 받는 대로 보여 주기</h2>
+        <div class="story-with-fig">
+          <div class="story-list">
           <div class="story">
-            <div class="story-head"><b>로그인과 챗봇 응답</b><span>JWT · 스트리밍</span></div>
+            <div class="story-head"><b>답이 다 만들어질 때까지 빈 화면</b><span>조각을 받는 대로</span></div>
             <div class="story-rows">
-            <div class="story-row"><span class="k">로그인</span><span>자체 Member 모델에 simplejwt를 맞춰 붙였습니다(access 1시간 · refresh 7일)</span></div>
-            <div class="story-row"><span class="k">챗봇</span><span>GMS 응답을 <code>stream=True</code>로 받아 <code>StreamingHttpResponse</code>로 바로 흘려보내고, nginx가 모아 두지 않게 <code>X-Accel-Buffering: no</code>를 붙였습니다. 대화는 최근 5턴만 보냅니다</span></div>
+            <div class="story-row"><span class="k">상황</span><span>LLM 답을 한 번에 받으면 다 만들어질 때까지 사용자는 빈 말풍선만 봅니다</span></div>
+            <div class="story-row"><span class="k">서버</span><span>GMS를 <code>stream=True</code>로 불러 <code>data:</code> 조각을 <code>[DONE]</code>까지 읽고, <code>StreamingHttpResponse</code>로 받는 대로 흘려보냅니다. nginx가 모아 두지 않게 <code>X-Accel-Buffering: no</code>를 붙였습니다</span></div>
+            <div class="story-row"><span class="k">화면</span><span>프론트는 fetch 응답을 <code>body.getReader()</code>로 읽고, <code>TextDecoder</code>의 stream 옵션으로 조각 경계에서 한글이 깨지지 않게 했습니다. 받은 글자는 버퍼에 쌓아 <code>setInterval</code>로 몇 글자씩 그립니다</span></div>
+            <div class="story-row res"><span class="k">예외</span><span>질문이 없으면 400, 대화 기록은 프론트가 들고 최근 5턴만 보내며, 실패하면 안내 문구로 바꿉니다</span></div>
             </div>
+          </div>
+          <div class="story">
+            <div class="story-head"><b>로그인 — 자체 회원 모델에 JWT</b><span>simplejwt</span></div>
+            <div class="story-rows">
+            <div class="story-row"><span class="k">해결</span><span>Django User 대신 자체 Member 모델을 쓰고, simplejwt 인증 클래스가 Member를 조회하도록 맞췄습니다(access 1시간 · refresh 7일)</span></div>
+            <div class="story-row"><span class="k">문서</span><span>drf-spectacular로 API 문서를 띄우고 JWT Bearer 인증을 표시했습니다</span></div>
+            </div>
+          </div>
+          </div>
+          <div>
+          <div class="fig-block"><img src="img/flow-ourwish-chat.png" alt="챗봇 스트리밍 순서" loading="lazy" /></div>
           </div>
         </div>
       </div>

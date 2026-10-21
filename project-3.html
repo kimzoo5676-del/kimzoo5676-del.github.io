@@ -231,9 +231,43 @@
 
       <div class="t-backend">
       <div class="metric-row">
-        <div class="metric"><div class="v">28.2→11.8<small>초</small></div><div class="l">투두 추천 응답 — 운영 방 앱 실측 평균</div></div>
-        <div class="metric"><div class="v">1~3→7~8<small>개</small></div><div class="l">검수를 끈 뒤 추천 후보 수 (자료 46건 방)</div></div>
-        <div class="metric"><div class="v">1분→5<small>초</small></div><div class="l">분석 완료 알림 — 묶어 보내던 규칙을 없앤 뒤 최대</div></div>
+        <div class="metric"><div class="v">1.2<small>초</small></div><div class="l">링크 등록 응답 (실측) — 분석은 뒤에서 13초 안에</div></div>
+        <div class="metric"><div class="v">24<small>시간</small></div><div class="l">같은 URL은 결과 재사용 — 크롤링 · LLM 0회</div></div>
+        <div class="metric"><div class="v">1분→5<small>초</small></div><div class="l">분석 완료 알림 — 묶기 규칙을 없앤 뒤 최대</div></div>
+      </div>
+      <div class="detail-block">
+        <h2>링크 하나로 자료 등록 — 크롤링 API</h2>
+        <div class="story-with-fig">
+          <div class="story-list">
+          <div class="story">
+            <div class="story-head"><b>등록 버튼을 누른 채 기다리게 하지 않기</b><span>응답 1.2초</span></div>
+            <div class="story-rows">
+            <div class="story-row"><span class="k">상황</span><span>예전 등록은 HTTP 응답 전에 크롤링 1회와 LLM 3회를 돌아, 문서화된 최악 대기가 약 198초였고 텍스트 한 줄 등록도 실측 13초 걸렸습니다</span></div>
+            <div class="story-row"><span class="k">해결</span><span>PENDING으로 저장하고 바로 응답한 뒤, 크롤링 · 요약 · 태깅은 <code>@Async</code> 전용 스레드 풀이 처리하게 했습니다. 주소 검증만 등록 시점에 남겨 잘못된 링크는 400으로 바로 알립니다</span></div>
+            <div class="story-row res"><span class="k">결과</span><span>실측 1.2초에 PENDING으로 응답하고, 13초 안에 DONE과 태그 5개가 채워졌습니다</span></div>
+            </div>
+          </div>
+          <div class="story">
+            <div class="story-head"><b>서버가 남이 준 주소로 요청을 보냄 — SSRF 방어</b><span>사설망 · 리다이렉트 차단</span></div>
+            <div class="story-rows">
+            <div class="story-row"><span class="k">위험</span><span>사용자가 올린 링크를 서버가 대신 열기 때문에, 내부망 주소를 넣으면 서버 안쪽을 들여다볼 수 있습니다</span></div>
+            <div class="story-row"><span class="k">해결</span><span>http/https만 받고, DNS로 풀린 IP가 루프백 · 링크로컬 · 사설 · 멀티캐스트면 거절합니다. JDK가 못 잡는 IPv6 사설 대역(fc00::/7)은 따로 검사합니다</span></div>
+            <div class="story-row"><span class="k">제한</span><span>리다이렉트는 따라가지 않고, 타임아웃 5초 · 응답 2MB로 묶었습니다</span></div>
+            </div>
+          </div>
+          <div class="story">
+            <div class="story-head"><b>실패해도 영원히 「분석 중」으로 남지 않게</b><span>최대 4번 · 60분 안 확정</span></div>
+            <div class="story-rows">
+            <div class="story-row"><span class="k">재시도</span><span>실패하면 20분 뒤 다시, 최대 4번 — 운영 DB에서 본 회복 시간 9분 · 18분을 근거로 정했습니다</span></div>
+            <div class="story-row"><span class="k">캐시</span><span>같은 URL을 24시간 안에 다시 올리면 앞선 결과를 재사용해 크롤링과 LLM을 부르지 않습니다</span></div>
+            <div class="story-row res"><span class="k">사이트</span><span>Instagram · YouTube · Naver는 전용 크롤러, 나머지는 공통 크롤러가 맡습니다. 운영 서버(데이터센터 IP)에서 Instagram이 jsoup 요청에는 로그인 화면을, Java HttpClient 요청에는 JSON을 주는 것을 확인하고 Instagram 요청을 HttpClient로 바꿨습니다</span></div>
+            </div>
+          </div>
+          </div>
+          <div>
+          <div class="fig-block"><img src="img/flow-modi-crawl.png" alt="링크 등록 API 순서" loading="lazy" /></div>
+          </div>
+        </div>
       </div>
       <div class="detail-block">
         <h2>AI 투두 추천 서버</h2>
@@ -268,6 +302,7 @@
             </div>
           </div>
         </div>
+        <div class="fig-block" style="margin-top:20px"><img src="img/flow-modi-suggest.png" alt="투두 추천 단계 변화" loading="lazy" /></div>
       </div>
       <div class="detail-block">
         <h2>운영하며 고친 서버 문제</h2>
@@ -298,15 +333,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="detail-block">
-        <h2>자료 등록과 크롤링</h2>
-        <p>링크를 올리면 서버가 크롤링해서 제목·본문·썸네일·출처를 가져오고, 크롤링한 본문으로 LLM을 호출해
-          요약과 태그 3~5개를 만듭니다. 서버가 남이 준 주소로 요청을 보내는 구조라 http/https만 받고
-          사설망·루프백 주소로는 못 나가게 막으며 리다이렉트도 따라가지 않습니다. 등록은 바로 응답하고
-          크롤링과 LLM 호출은 별도 스레드에서 돌며, 같은 URL은 24시간 동안 앞선 결과를 다시 씁니다.</p>
-        <p>운영 서버(데이터센터 IP)에서 Instagram이 jsoup 요청에는 로그인 화면을, Java HttpClient(HTTP/2) 요청에는
-          JSON을 주는 것을 확인하고 Instagram 요청을 HttpClient로 바꿨습니다.</p>
       </div>
       </div>
 
