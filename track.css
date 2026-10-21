@@ -1,0 +1,293 @@
+/* ===== Infra / Backend 보기 전환 =====
+   <html data-track="infra|backend"> 에 따라 .t-infra / .t-backend 를 보이거나 숨긴다.
+   값은 head 의 인라인 스크립트가 ?track= → localStorage → 기본값(infra) 순으로 정한다. */
+html[data-track="infra"] .t-backend,
+html[data-track="backend"] .t-infra {
+  display: none !important;
+}
+
+/* 헤더의 전환 버튼 */
+.site-header nav {
+  margin-left: auto;
+}
+
+.track-toggle {
+  display: inline-flex;
+  border: 1px solid var(--black);
+  margin-left: 32px;
+}
+
+.track-toggle button {
+  background: var(--white);
+  border: none;
+  padding: 7px 14px;
+  font-family: 'Roboto', 'Pretendard Variable', Pretendard, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.track-toggle button + button {
+  border-left: 1px solid var(--black);
+}
+
+.track-toggle button[aria-pressed="true"] {
+  background: var(--burgundy);
+  color: var(--white);
+}
+
+.track-toggle button:not([aria-pressed="true"]):hover {
+  color: var(--burgundy);
+}
+
+/* 다른 보기로 넘어가라는 안내 (해당 보기에 없는 프로젝트 상세에서) */
+.t-note {
+  border-left: 4px solid var(--burgundy);
+  background: var(--gray-50);
+  padding: 14px 18px;
+  font-size: 15px;
+  color: var(--gray-700);
+  margin-bottom: 32px;
+}
+
+.t-note button {
+  background: none;
+  border: none;
+  color: var(--burgundy);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+/* ===== 상세 페이지 — 지표 카드 ===== */
+.metric-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.metric {
+  border: 1px solid var(--gray-200);
+  border-top: 3px solid var(--burgundy);
+  padding: 16px 20px;
+}
+
+.metric .v {
+  font-family: 'Roboto', 'Pretendard Variable', Pretendard, sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--burgundy);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.metric .v small {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gray-500);
+  margin-left: 2px;
+}
+
+.metric .l {
+  font-size: 14px;
+  color: var(--gray-700);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+/* ===== 상세 페이지 — 이야기 카드 (상황 · 원인 · 해결 · 결과) ===== */
+.story-list {
+  display: grid;
+  gap: 20px;
+}
+
+.story {
+  border: 1px solid var(--gray-300);
+  background: var(--white);
+}
+
+.story-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 12px 20px;
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.story-head b {
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.story-head span {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--burgundy);
+  white-space: nowrap;
+}
+
+.story-rows {
+  padding: 10px 20px 14px;
+}
+
+.story-row {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 12px;
+  padding: 4px 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--gray-700);
+}
+
+.story-row .k {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gray-500);
+  padding-top: 2px;
+}
+
+.story-row.res {
+  color: var(--black);
+  font-weight: 600;
+}
+
+.story-row.res .k {
+  color: var(--burgundy);
+}
+
+.story-row code,
+.detail-block code {
+  font-family: 'SF Mono', Menlo, ui-monospace, monospace;
+  font-size: 0.9em;
+  background: var(--gray-100);
+  padding: 0 4px;
+}
+
+/* ===== 상세 페이지 — 그림 ===== */
+.fig-block {
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  margin-top: 20px;
+}
+
+.fig-block img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.fig-block.tint {
+  background: #f6f7fb;
+}
+
+.fig-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.fig-pair .fig-block {
+  margin-top: 0;
+}
+
+.fig-pair .fig-block img {
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* 이야기 카드와 흐름 그림을 나란히 */
+.story-with-fig {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.story-with-fig .fig-block {
+  margin-top: 0;
+}
+
+/* 회고 · 남은 일 */
+.retro-box {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  padding: 18px 22px;
+  margin-top: 20px;
+}
+
+.retro-box .t {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.retro-box p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--gray-700);
+}
+
+.retro-box .src {
+  font-size: 13px;
+  color: var(--gray-500);
+  margin-top: 6px;
+}
+
+/* 프로젝트 목록 카드 위 작은 표시 */
+.track-badge {
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  border: 1px solid var(--burgundy);
+  padding: 2px 8px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 960px) {
+  .track-toggle {
+    margin-left: auto;
+    margin-right: 12px;
+  }
+
+  .metric-row,
+  .story-with-fig,
+  .fig-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .track-toggle button {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+
+  .story-head {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .story-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

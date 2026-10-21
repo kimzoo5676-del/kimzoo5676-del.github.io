@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEW:LEARN | 김주우</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="NEW:LEARN | 김주우" />
+  <meta name="description" content="AI로 뉴스를 구조화하는 이슈 분석 서비스 — Terraform · 최소 권한 IAM · kubeadm 클러스터 · CI 병목 측정" />
+  <meta property="og:description" content="AI로 뉴스를 구조화하는 이슈 분석 서비스 — Terraform · 최소 권한 IAM · kubeadm 클러스터 · CI 병목 측정" />
+  <meta property="og:url" content="https://kimzoo5676-del.github.io/project-newlearn.html" />
+  <meta property="og:image" content="https://kimzoo5676-del.github.io/img/newlearn-cover.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="styles.css?v=20260904c" />
+  <link rel="stylesheet" href="track.css?v=20261022" />
+  <script>
+    // Infra / Backend 보기: ?track= → 지난번 선택 → infra 순으로 정해 첫 화면부터 맞게 그린다 (script.js 와 한 쌍)
+    (function () {
+      var t = new URLSearchParams(location.search).get('track');
+      if (!t) { try { t = localStorage.getItem('track'); } catch (e) {} }
+      if (t !== 'infra' && t !== 'backend') t = 'infra';
+      document.documentElement.setAttribute('data-track', t);
+    })();
+  </script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23800020'/%3E%3Ctext x='32' y='45' font-family='Arial, sans-serif' font-size='30' font-weight='900' fill='%23ffffff' text-anchor='middle'%3EJK%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">KIMJOOWOO</a>
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+          <li><a href="experience.html">Experience</a></li>
+        </ul>
+      </nav>
+      <div class="track-toggle" role="group" aria-label="보기 선택">
+        <button type="button" data-set-track="infra" aria-pressed="true">Infra</button>
+        <button type="button" data-set-track="backend" aria-pressed="false">Backend</button>
+      </div>
+      <button class="mobile-toggle" type="button" aria-label="메뉴" aria-controls="navMenu" aria-expanded="false">≡</button>
+    </div>
+  </header>
+
+  <section class="page-header">
+    <div class="container">
+      <div class="page-header-grid">
+        <div>
+          <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="sep">/</span>
+            <a href="projects.html">Projects</a>
+            <span class="sep">/</span>
+            <span class="current">NEW:LEARN</span>
+          </div>
+        </div>
+        <div>
+          <div class="section-tag">Project Detail</div>
+          <h1 class="section-title">NEW:LEARN</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+
+      <div class="t-note t-backend">이 프로젝트는 <b>Infra</b> 보기에서 소개합니다. 백엔드 프로젝트는 <a href="projects.html">프로젝트 목록</a>에서 볼 수 있습니다.</div>
+      <div class="project-cover"><img src="img/newlearn-cover.png" alt="NEW:LEARN 첫 화면" /></div>
+
+      <div class="detail-meta">
+        <div class="item">
+          <div class="label">기간</div>
+          <div class="value">2026.10 — 진행 중 (최종 발표 11.18)</div>
+        </div>
+        <div class="item">
+          <div class="label">역할</div>
+          <div class="value">인프라 전담 · 백엔드 공동</div>
+        </div>
+        <div class="item">
+          <div class="label">한 줄 요약</div>
+          <div class="value">뉴스 기사를 AI로 마인드맵으로 구조화하고, 같은 사건을 다룬 기사를 묶어 이슈의 흐름으로 보여 주는 서비스</div>
+        </div>
+      </div>
+      <div class="detail-stacks">
+        <div class="stack-group">
+          <div class="stack-label">Cloud · IaC</div>
+          <div class="project-stack">
+            <span class="tech-tag">AWS EC2</span>
+            <span class="tech-tag">Terraform</span>
+            <span class="tech-tag">IAM</span>
+            <span class="tech-tag">S3</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <div class="stack-label">Cluster</div>
+          <div class="project-stack">
+            <span class="tech-tag">Kubernetes(kubeadm)</span>
+            <span class="tech-tag">Cilium</span>
+            <span class="tech-tag">Helm</span>
+            <span class="tech-tag">Argo CD</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <div class="stack-label">CI · Observability</div>
+          <div class="project-stack">
+            <span class="tech-tag">GitLab CI</span>
+            <span class="tech-tag">GitLab Runner</span>
+            <span class="tech-tag">Prometheus</span>
+            <span class="tech-tag">Grafana</span>
+          </div>
+        </div>
+      </div>
+      <div class="metric-row">
+        <div class="metric"><div class="v">305→119<small>초</small></div><div class="l">MR 파이프라인 — 러너 CPU 재배치 후</div></div>
+        <div class="metric"><div class="v">136→39<small>초</small></div><div class="l">backend 잡 — 노트북 러너 합류 후</div></div>
+        <div class="metric"><div class="v">4<small>/ 476</small></div><div class="l">apply 키가 쓸 수 있는 AWS 서비스 수</div></div>
+      </div>
+      <div class="detail-block">
+        <h2>아키텍처</h2>
+        <p>관리 서버(EC2 · 컨트롤 플레인 · 러너 · 모니터링)까지 구축했고, 워커 노드(SSAFY Lightsail)와
+          Argo CD 배포는 서버를 받는 대로 붙입니다. 아래는 목표 구성입니다.</p>
+        <div class="fig-block"><img src="img/arch-newlearn.png" alt="NEW:LEARN 아키텍처" loading="lazy" /></div>
+      </div>
+      <div class="detail-block">
+        <h2>CI를 만들기 전에 병목부터 재기</h2>
+        <div class="story-with-fig">
+          <div class="story-list">
+          <div class="story">
+            <div class="story-head"><b>러너 CPU를 잡 갈래별로 나누기</b><span>backend 잡 136 → 39초</span></div>
+            <div class="story-rows">
+            <div class="story-row"><span class="k">상황</span><span>여신보좌관은 CPU 4개인 운영 서버에 러너를 함께 두어, 테스트가 쌓이자 MR 파이프라인이 중앙값 약 11분, 기다림 상위 10% 23분까지 늘었습니다. NEW:LEARN 관리 서버는 vCPU 2개를 컨트롤 플레인 · 모니터링과 나눠 씁니다</span></div>
+            <div class="story-row"><span class="k">설계</span><span>노드 예약 1190m를 빼고 남은 810m에 맞춰 갈래(W0~W4)별 CPU 요청 · 상한을 정했습니다 — backend 잡 550m</span></div>
+            <div class="story-row"><span class="k">측정</span><span>잡 끝에 <code>cpu.stat</code>을 남겨 backend 잡이 2221 구간 중 2036(92%)에서 상한에 막힌 것을 확인했습니다</span></div>
+            <div class="story-row"><span class="k">해결</span><span>CPU 4개인 노트북을 두 번째 러너로 붙이고, EC2 러너는 늘 켜진 기본 러너로 두었습니다</span></div>
+            <div class="story-row res"><span class="k">결과</span><span>backend 잡 136초 → 39초, 파이프라인 305초 → 119초</span></div>
+            </div>
+          </div>
+          <div class="story">
+            <div class="story-head"><b>관측을 먼저 올리고, 캐시는 재서 고르기</b><span>캐시 572초 → 320초</span></div>
+            <div class="story-rows">
+            <div class="story-row"><span class="k">관측</span><span>추가 요금이 없는 Prometheus · Grafana를 CI보다 먼저 올리고, CPU 상한 0.1 시험 Pod로 스로틀 지표가 잡히는지 확인했습니다(98.7%)</span></div>
+            <div class="story-row"><span class="k">캐시</span><span>캐시 없이 480~490초, GitLab 기본 캐시는 압축 때문에 오히려 572초 → 캐시 폴더를 직접 쓰는 방식으로 바꿔 320초</span></div>
+            <div class="story-row res"><span class="k">결과</span><span>CI를 21번 돌린 뒤에도 CPU 크레딧 잔액 54 → 269.8 — 지금 서버로 감당합니다</span></div>
+            </div>
+          </div>
+          </div>
+          <div>
+          <div class="fig-block"><img src="img/flow-newlearn-ci.png" alt="NEW:LEARN CI 러너 구성" loading="lazy" /></div>
+          </div>
+        </div>
+        <div class="fig-pair" style="margin-top:20px">
+          <div class="fig-block"><img src="img/nl-ci-dashboard.jpg" alt="CI 잡 대시보드" loading="lazy" /></div>
+          <div class="fig-block"><img src="img/nl-pod-throttling.jpg" alt="Pod 스로틀 패널" loading="lazy" /></div>
+        </div>
+        <p style="margin-top:16px">구현과 측정은 Claude Code에 맡기고, 구성과 비용이 걸린 결정은 직접 했습니다. 잰 방법과 함께 기록된 값만 근거로 씁니다.</p>
+      </div>
+      <div class="detail-block">
+        <h2>공부한 IAM 원칙을 Terraform 서버 구축에</h2>
+        <div class="story-with-fig">
+          <div class="story-list">
+          <div class="story">
+            <div class="story-head"><b>콘솔 클릭 대신 코드로 서버 만들기</b><span>자원 7개 · apply 19초</span></div>
+            <div class="story-rows">
+            <div class="story-row"><span class="k">상황</span><span>콘솔에서 만든 자원은 무엇이 만들어졌는지 코드로 남지 않아, 다시 만들거나 지울 때 사람 기억에 기댑니다</span></div>
+            <div class="story-row"><span class="k">해결</span><span>서버 · 보안 그룹 · 고정 IP · 예산 알림을 Terraform으로 정의했습니다. 상태 파일은 S3(버전 관리 · 퍼블릭 차단 · 잠금)에 두고, plan을 읽은 뒤 저장한 plan 파일로만 apply합니다</span></div>
+            <div class="story-row"><span class="k">방어</span><span>SSH는 관리자 IP /32만 열고 <code>0.0.0.0/0</code> 입력은 변수 검사로 거절하며, 보안 그룹은 테스트로 검사합니다. IMDSv2 필수, 예산 알림 80 · 100% · 예측</span></div>
+            <div class="story-row res"><span class="k">결과</span><span>plan으로 확인한 자원 7개를 그대로 apply했고, 같은 코드로 다시 만들고 지울 수 있습니다</span></div>
+            </div>
+          </div>
+          <div class="story">
+            <div class="story-head"><b>apply 키의 권한을 필요한 만큼으로</b><span>키가 새도 서울 리전 밖은 불가</span></div>
+            <div class="story-rows">
+            <div class="story-row"><span class="k">상황</span><span>넓은 권한의 키는 새는 순간 계정 전체가 위험합니다. Zoolog에 정리한 IAM 공부(최소 권한 · Condition 키 · 루트 키 삭제)를 그대로 적용했습니다</span></div>
+            <div class="story-row"><span class="k">해결</span><span>루트 계정에는 액세스 키를 만들지 않고, plan은 읽기 전용 사용자, apply는 콘솔 접근 없는 전용 사용자로 나눴습니다. 고객 관리형 정책은 EC2 · Budgets · S3(<code>newlearn-tfstate-*</code>만) · STS, EC2에는 <code>aws:RequestedRegion = ap-northeast-2</code></span></div>
+            <div class="story-row"><span class="k">판단</span><span>SSO(Identity Center)는 조직을 만들면 무료 크레딧이 사라져 쓰지 않고, 대신 장기 키의 범위를 좁혔습니다</span></div>
+            <div class="story-row res"><span class="k">결과</span><span>다른 리전 조회가 거절되는 것까지 확인 — 키가 새도 서울 리전의 EC2 · 예산 · 상태 버킷 밖은 건드릴 수 없습니다</span></div>
+            </div>
+          </div>
+          </div>
+          <div>
+          <div class="fig-block"><img src="img/flow-newlearn-tf.png" alt="Terraform plan · apply 흐름" loading="lazy" /></div>
+          <div class="fig-block"><img src="img/nl-iam-summary.png" alt="IAM 정책 요약 — 476개 중 4개" loading="lazy" /></div>
+          </div>
+        </div>
+      </div>
+
+      <a href="projects.html" class="project-link back-link">← 프로젝트 목록으로</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">KIMJOOWOO</a>
+          <p>백엔드와 인프라로 서비스를 만드는 개발자 김주우입니다.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Navigate</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="experience.html">Experience</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Links</h5>
+          <ul>
+            <li><a href="https://github.com/kimzoo5676-del" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://velog.io/@zooouu/posts" target="_blank" rel="noopener">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Joowoo Kim<span class="accent-dot">.</span></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=20261022"></script>
+  <script src="script.js?v=20261022"></script>
+</body>
+</html>

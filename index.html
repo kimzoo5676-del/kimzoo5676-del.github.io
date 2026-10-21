@@ -17,6 +17,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <link rel="stylesheet" href="styles.css?v=20260904c" />
+  <link rel="stylesheet" href="track.css?v=20261022" />
+  <script>
+    // Infra / Backend 보기: ?track= → 지난번 선택 → infra 순으로 정해 첫 화면부터 맞게 그린다 (script.js 와 한 쌍)
+    (function () {
+      var t = new URLSearchParams(location.search).get('track');
+      if (!t) { try { t = localStorage.getItem('track'); } catch (e) {} }
+      if (t !== 'infra' && t !== 'backend') t = 'infra';
+      document.documentElement.setAttribute('data-track', t);
+    })();
+  </script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23800020'/%3E%3Ctext x='32' y='45' font-family='Arial, sans-serif' font-size='30' font-weight='900' fill='%23ffffff' text-anchor='middle'%3EJK%3C/text%3E%3C/svg%3E" />
 </head>
 
@@ -32,6 +42,10 @@
           <li><a href="experience.html">Experience</a></li>
         </ul>
       </nav>
+      <div class="track-toggle" role="group" aria-label="보기 선택">
+        <button type="button" data-set-track="infra" aria-pressed="true">Infra</button>
+        <button type="button" data-set-track="backend" aria-pressed="false">Backend</button>
+      </div>
       <button class="mobile-toggle" type="button" aria-label="메뉴" aria-controls="navMenu" aria-expanded="false">≡</button>
     </div>
   </header>
@@ -40,19 +54,39 @@
     <div class="container">
       <div class="hero-grid">
         <div>
-          <span class="hero-label">Backend / Infra</span>
-          <h1 class="hero-title">
-            안 해본 것을,<br />
-            <span class="accent">직접 해보며 배우는</span><br />
-            백엔드/인프라 개발자.
-          </h1>
-          <p class="hero-subtitle">
-            개발을 시작할 때 한 번도 다뤄보지 않은 것들이 많았습니다.
-            또한 쓰는 기술은 계속 바뀌고 새로운 것에는 늘 적응해야 합니다.
-            그래서 직접 프로젝트에 적용하고, 학습하고, 성장하며 개발합니다.
-          </p>
-          <div class="hero-actions">
-            <a href="projects.html" class="btn btn-primary">프로젝트 보기</a>
+          <div class="t-infra">
+            <span class="hero-label">Cloud / Infra</span>
+            <h1 class="hero-title">
+              배포를 자동화하고,<br />
+              <span class="accent">실제 상태를 재는</span><br />
+              인프라 엔지니어.
+            </h1>
+            <p class="hero-subtitle">
+              다섯 프로젝트에서 배포를 자동화하고, 배포가 성공으로 표시될 때도
+              실제 상태를 확인하며, 서버와 권한을 코드로 관리하는 데까지
+              범위를 넓혔습니다.
+            </p>
+            <div class="hero-actions">
+              <a href="projects.html" class="btn btn-primary">프로젝트 보기</a>
+              <a href="pdf/kimjoowoo-infra-portfolio.pdf" class="btn btn-outline" download>인프라 포트폴리오 PDF</a>
+            </div>
+          </div>
+          <div class="t-backend">
+            <span class="hero-label">Backend</span>
+            <h1 class="hero-title">
+              안 해본 것을,<br />
+              <span class="accent">직접 해보며 배우는</span><br />
+              백엔드 개발자.
+            </h1>
+            <p class="hero-subtitle">
+              개발을 시작할 때 한 번도 다뤄보지 않은 것들이 많았습니다.
+              또한 쓰는 기술은 계속 바뀌고 새로운 것에는 늘 적응해야 합니다.
+              그래서 직접 프로젝트에 적용하고, 학습하고, 성장하며 개발합니다.
+            </p>
+            <div class="hero-actions">
+              <a href="projects.html" class="btn btn-primary">프로젝트 보기</a>
+              <a href="pdf/kimjoowoo-sw-portfolio.pdf" class="btn btn-outline" download>SW 포트폴리오 PDF</a>
+            </div>
           </div>
         </div>
 
@@ -68,7 +102,7 @@
               </div>
               <div class="info-block">
                 <div class="label">Position</div>
-                <div class="value burgundy">Backend / Infra</div>
+                <div class="value burgundy"><span class="t-infra">Cloud / Infra</span><span class="t-backend">Backend</span></div>
               </div>
               <div class="info-block">
                 <div class="label">Phone</div>
@@ -82,7 +116,8 @@
           </div>
           <div class="info-block">
             <div class="label">Core Stack</div>
-            <div class="value">Spring Boot · FastAPI · PostgreSQL · Docker · Jenkins · GitHub Actions</div>
+            <div class="value t-infra">AWS · Terraform · Kubernetes · Docker · GitHub Actions · GitLab CI · Prometheus</div>
+            <div class="value t-backend">Spring Boot · FastAPI · Django · PostgreSQL · Redis · LangGraph</div>
           </div>
         </div>
       </div>
@@ -251,6 +286,11 @@
             <span class="skill-pill">Gunicorn</span>
             <span class="skill-pill">Jenkins</span>
             <span class="skill-pill">GitHub Actions</span>
+            <span class="skill-pill">GitLab CI</span>
+            <span class="skill-pill">Terraform</span>
+            <span class="skill-pill">Argo CD</span>
+            <span class="skill-pill">Prometheus</span>
+            <span class="skill-pill">Grafana</span>
           </div>
         </div>
         <div class="skill-row">
@@ -296,7 +336,7 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260904c"></script>
+  <script src="script.js?v=20261022"></script>
 </body>
 
 </html>

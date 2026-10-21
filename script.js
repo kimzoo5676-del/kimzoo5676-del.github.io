@@ -11,6 +11,34 @@
   });
 })();
 
+// Infra / Backend 보기 전환: 헤더 버튼(data-set-track)이 <html data-track> 을 바꾸고,
+// 고른 값을 localStorage 와 주소(?track=)에 남겨 다른 페이지 · 공유 링크에서도 이어지게 한다.
+// (첫 값은 각 페이지 head 의 인라인 스크립트가 정한다. track.css 와 한 쌍)
+(function () {
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll('[data-set-track]');
+
+  function apply(track, push) {
+    root.setAttribute('data-track', track);
+    try { localStorage.setItem('track', track); } catch (e) { /* 저장소를 못 쓰면 이 페이지에서만 바뀐다 */ }
+    document.querySelectorAll('.track-toggle [data-set-track]').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-set-track') === track ? 'true' : 'false');
+    });
+    if (push && window.history && history.replaceState) {
+      var url = new URL(location.href);
+      url.searchParams.set('track', track);
+      history.replaceState(null, '', url);
+    }
+  }
+
+  apply(root.getAttribute('data-track') || 'infra', false);
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      apply(b.getAttribute('data-set-track'), true);
+    });
+  });
+})();
+
 // 스크롤 리빌: 요소가 화면에 들어오면 부드럽게 떠오르며 나타납니다.
 // (styles.css의 .reveal / .visible 규칙과 한 쌍)
 (function () {

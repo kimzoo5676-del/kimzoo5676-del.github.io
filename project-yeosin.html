@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>여신보좌관 | 김주우</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="여신보좌관 | 김주우" />
+  <meta name="description" content="기업 여신 심사를 돕는 AI 서비스 — Docker Swarm 운영과 배포 진단, 감사 로그 해시 체인과 인증" />
+  <meta property="og:description" content="기업 여신 심사를 돕는 AI 서비스 — Docker Swarm 운영과 배포 진단, 감사 로그 해시 체인과 인증" />
+  <meta property="og:url" content="https://kimzoo5676-del.github.io/project-yeosin.html" />
+  <meta property="og:image" content="https://kimzoo5676-del.github.io/img/yeosin-cover.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="styles.css?v=20260904c" />
+  <link rel="stylesheet" href="track.css?v=20261022" />
+  <script>
+    // Infra / Backend 보기: ?track= → 지난번 선택 → infra 순으로 정해 첫 화면부터 맞게 그린다 (script.js 와 한 쌍)
+    (function () {
+      var t = new URLSearchParams(location.search).get('track');
+      if (!t) { try { t = localStorage.getItem('track'); } catch (e) {} }
+      if (t !== 'infra' && t !== 'backend') t = 'infra';
+      document.documentElement.setAttribute('data-track', t);
+    })();
+  </script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23800020'/%3E%3Ctext x='32' y='45' font-family='Arial, sans-serif' font-size='30' font-weight='900' fill='%23ffffff' text-anchor='middle'%3EJK%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">KIMJOOWOO</a>
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+          <li><a href="experience.html">Experience</a></li>
+        </ul>
+      </nav>
+      <div class="track-toggle" role="group" aria-label="보기 선택">
+        <button type="button" data-set-track="infra" aria-pressed="true">Infra</button>
+        <button type="button" data-set-track="backend" aria-pressed="false">Backend</button>
+      </div>
+      <button class="mobile-toggle" type="button" aria-label="메뉴" aria-controls="navMenu" aria-expanded="false">≡</button>
+    </div>
+  </header>
+
+  <section class="page-header">
+    <div class="container">
+      <div class="page-header-grid">
+        <div>
+          <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="sep">/</span>
+            <a href="projects.html">Projects</a>
+            <span class="sep">/</span>
+            <span class="current">여신보좌관</span>
+          </div>
+        </div>
+        <div>
+          <div class="section-tag">Project Detail</div>
+          <h1 class="section-title">여신보좌관</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+
+      <div class="project-cover"><img src="img/yeosin-cover.png" alt="여신보좌관 서비스 화면" /></div>
+
+      <div class="detail-meta">
+        <div class="item">
+          <div class="label">기간</div>
+          <div class="value">2026.08.27 — 2026.09.29</div>
+        </div>
+        <div class="item">
+          <div class="label">역할</div>
+          <div class="value">인프라 · 인증 · 감사 로그</div>
+        </div>
+        <div class="item">
+          <div class="label">한 줄 요약</div>
+          <div class="value">은행 여신 심사 담당자가 법인 서류를 심사할 때 판독 · 판정 · 점수 · 한도 · 심사의견 초고까지 돕는 서비스</div>
+        </div>
+        <div class="item">
+          <div class="label">Links</div>
+          <div class="value detail-links">
+            <a href="https://github.com/kimzoo5676-del/loanreview" class="btn btn-outline" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+      <div class="detail-stacks">
+        <div class="stack-group">
+          <div class="stack-label">Backend</div>
+          <div class="project-stack">
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">Spring Boot</span>
+            <span class="tech-tag">Spring Security</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">Flyway</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <div class="stack-label">Infra</div>
+          <div class="project-stack">
+            <span class="tech-tag">AWS Lightsail</span>
+            <span class="tech-tag">Docker Swarm</span>
+            <span class="tech-tag">Jenkins</span>
+            <span class="tech-tag">GitLab CI</span>
+            <span class="tech-tag">Nginx</span>
+            <span class="tech-tag">Tailscale</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <div class="stack-label">Observability</div>
+          <div class="project-stack">
+            <span class="tech-tag">Prometheus</span>
+            <span class="tech-tag">Loki</span>
+            <span class="tech-tag">Alloy</span>
+            <span class="tech-tag">Grafana</span>
+          </div>
+        </div>
+      </div>
+      <div class="detail-block">
+        <h2>배경 &amp; 문제</h2>
+        <p>은행의 여신 심사를 어떻게 편하게 도울 수 있는지, 그 서비스 흐름 자체를 보여 주는 것이 중요한 프로젝트였습니다.
+          일반 소비자가 아니라 여신 업무를 맡은 담당자만 쓰는 서비스라서, 많은 트래픽보다 심사 한 건을 끝까지 정확하게
+          처리하는 쪽에 맞춰 규모를 정했습니다. 팀에서 인프라와 인증 · 감사 로그를 맡았습니다.</p>
+      </div>
+      <div class="detail-block">
+        <h2>시스템 아키텍처</h2>
+        <p>Lightsail 한 대(4 vCPU · 16GB)에 Docker Swarm으로 서비스 11개를 올렸습니다. 밖으로 포트를 여는 것은
+          Nginx 하나뿐이고(80 · 443), OCR은 Tailscale로 연결한 GPU 노트북에서 처리합니다.</p>
+        <div class="fig-block tint"><img src="img/arch-yeosin.png" alt="여신보좌관 아키텍처" loading="lazy" /></div>
+      </div>
+      <div class="t-infra">
+      <div class="metric-row">
+        <div class="metric"><div class="v">11<small>개</small></div><div class="l">Lightsail 1대에 올린 Swarm 서비스</div></div>
+        <div class="metric"><div class="v">80 · 443</div><div class="l">밖으로 여는 포트 — Nginx 하나만</div></div>
+        <div class="metric"><div class="v">start-first</div><div class="l">새 컨테이너가 healthy가 된 뒤 옛 컨테이너를 내림</div></div>
+      </div>
+      <div class="detail-block">
+        <h2>배포 성공 표시 너머의 실제 상태 확인</h2>
+        <div class="story-with-fig">
+          <div class="story-list">
+          <div class="story">
+            <div class="story-head"><b>① 첫 자동 배포가 헬스체크에서 502</b><span>DNS 다시 묻기</span></div>
+            <div class="story-rows">
+            <div class="story-row"><span class="k">상황</span><span>backend 컨테이너는 172.18.0.8에 살아 있었지만, Nginx 오류 로그에는 172.18.0.9로 보낸 요청이 남아 있었습니다</span></div>
+            <div class="story-row"><span class="k">원인</span><span>Nginx는 기동할 때 upstream 이름을 IP로 한 번 바꿔 계속 씁니다. 배포로 새로 뜬 backend는 새 IP를 받습니다</span></div>
+            <div class="story-row"><span class="k">해결</span><span><code>resolver 127.0.0.11 valid=10s</code>와 <code>proxy_pass</code> 변수로, 10초가 지난 요청에서 Docker DNS에 다시 묻게 했습니다</span></div>
+            </div>
+          </div>
+          <div class="story">
+            <div class="story-head"><b>② 다음 배포는 성공인데 설정이 그대로</b><span>디렉터리 마운트로</span></div>
+            <div class="story-rows">
+            <div class="story-row"><span class="k">상황</span><span>서버 폴더와 컨테이너 안에서 같은 설정 파일의 inode와 크기를 비교하자 서로 달랐습니다 — 서버 1112487 · 2371B, 컨테이너 1088149 · 1694B</span></div>
+            <div class="story-row"><span class="k">원인</span><span>파일 하나만 바인드 마운트하면 그 순간의 inode에 묶이는데, git은 파일을 지우고 새로 써서 inode가 바뀝니다. 리눅스에서 재현해 서버 inode만 2263971 → 2263952로 바뀌는 것을 확인했습니다</span></div>
+            <div class="story-row"><span class="k">해결</span><span>설정 디렉터리를 마운트해 컨테이너가 열 때마다 이름으로 찾아가게 했습니다</span></div>
+            <div class="story-row res"><span class="k">결과</span><span>같은 조사에서 로컬 설정 검사가 경로 변환 때문에 빈 폴더를 검사하던 것도 찾아, 서버의 실제 설정으로 검사를 옮겼습니다</span></div>
+            </div>
+          </div>
+          </div>
+          <div>
+          <div class="fig-block"><img src="img/flow-yeosin-502.png" alt="502 원인과 조치 시퀀스" loading="lazy" /></div>
+          </div>
+        </div>
+        <div class="retro-box">
+          <div class="t">여신보좌관 회고</div>
+          <p>전에는 인프라를 서버를 띄우고 배포하는 일로만 봤습니다. 이번에는 팀원이 CI를 기다리는 시간과, 배포가 정말 성공했는지 확인하는 기준까지 인프라가 책임질 일이라는 걸 배웠습니다.</p>
+          <div class="src">프로젝트 README 「프로젝트 후기 및 느낀 점」 중</div>
+        </div>
+      </div>
+      </div>
+
+      <div class="t-backend">
+      <div class="metric-row">
+        <div class="metric"><div class="v">20<small>/ 20행</small></div><div class="l">동시 20스레드 감사 로그 추가 — 체인 검증 통과</div></div>
+        <div class="metric"><div class="v">4<small>종 거부</small></div><div class="l">런타임 계정의 UPDATE · DELETE · TRUNCATE · 트리거 끄기</div></div>
+        <div class="metric"><div class="v">0<small>개</small></div><div class="l">TOTP 2차 인증에 새로 넣은 의존성</div></div>
+      </div>
+      <div class="detail-block">
+        <h2>감사 로그 — 고칠 수 없는 기록</h2>
+        <div class="story-list">
+          <div class="story">
+            <div class="story-head"><b>append-only 해시 체인</b><span>중간 행 수정 · 삭제 검출</span></div>
+            <div class="story-rows">
+            <div class="story-row"><span class="k">상황</span><span>위변조 방지가 요구사항이었습니다. DB 권한만으로는 DB 관리자를 막지 못하고, 전용 WORM 저장소는 프로토타입에 과하다고 판단해 해시 체인을 골랐습니다</span></div>
+            <div class="story-row"><span class="k">설계</span><span>각 행이 앞 행의 해시를 담고, 체인 검증이 처음부터 다시 계산해 깨진 첫 행을 찾습니다. 수정할 수 있는 JPA 엔티티는 아예 만들지 않았습니다</span></div>
+            <div class="story-row"><span class="k">함정</span><span>PostgreSQL JSONB는 키를 다시 정렬하고 공백을 없애며, timestamptz는 마이크로초까지만 저장합니다. 저장된 문자열을 해시하면 다시 읽었을 때 검증이 깨집니다</span></div>
+            <div class="story-row"><span class="k">해결</span><span>키 정렬 · 공백 없는 JSON을 직접 만드는 규칙을 <code>canon_version 1</code>로 고정하고, 시각은 마이크로초로 잘라 해시했습니다</span></div>
+            <div class="story-row res"><span class="k">결과</span><span>중간 행 UPDATE · DELETE를 테스트에서 검출합니다. 꼬리를 잘라내거나 전체를 다시 계산하면 못 잡는다는 한계도 명세에 적었습니다</span></div>
+            </div>
+          </div>
+          <div class="story">
+            <div class="story-head"><b>동시에 써도 체인이 갈라지지 않게</b><span>20스레드 → 20행</span></div>
+            <div class="story-rows">
+            <div class="story-row"><span class="k">원인</span><span>꼬리 읽기 → 해시 계산 → INSERT 사이에 다른 요청이 끼면 같은 앞 행을 가리키는 두 행이 생깁니다</span></div>
+            <div class="story-row"><span class="k">해결</span><span><code>pg_advisory_xact_lock</code>으로 인스턴스가 여럿이어도 직렬화하고(트랜잭션이 끝나면 풀림), <code>prev_hash</code>에 UNIQUE를 걸어 잠금을 빠뜨린 코드까지 DB가 막게 했습니다</span></div>
+            <div class="story-row"><span class="k">판단</span><span>격리 수준은 READ COMMITTED를 유지했습니다. REPEATABLE READ면 잠금을 얻은 뒤에도 옛 꼬리를 읽습니다</span></div>
+            <div class="story-row res"><span class="k">결과</span><span>동시 20스레드 추가 테스트에서 20행이 생기고 체인 검증을 통과합니다</span></div>
+            </div>
+          </div>
+          <div class="story">
+            <div class="story-head"><b>DB 권한 — 트리거 한 겹에서 두 겹으로</b><span>42501 권한 오류</span></div>
+            <div class="story-rows">
+            <div class="story-row"><span class="k">상황</span><span>수정 금지 트리거만 있었고 backend가 표 소유자로 접속해, 앱 연결로 <code>DISABLE TRIGGER</code>가 가능했습니다. SQL 인젝션 하나로 트리거를 끄고 기록을 다시 쓸 수 있는 상태였습니다</span></div>
+            <div class="story-row"><span class="k">해결</span><span>런타임 계정은 audit_log에 SELECT · INSERT만 갖고, 표 변경은 Flyway 소유자 계정만 합니다. 표가 하나뿐인 지금 하는 것이 가장 싸다고 보고 이후 표의 기본 권한도 함께 잡았습니다</span></div>
+            <div class="story-row res"><span class="k">결과</span><span>통합 테스트에서 추가는 성공하고, UPDATE · DELETE · TRUNCATE · 트리거 끄기는 모두 권한 오류(42501)로 거부됩니다</span></div>
+            <div class="story-row"><span class="k">한계</span><span>프로세스가 탈취되면 같은 컨테이너의 Flyway 소유자 자격 때문에 막지 못한다고 명세에 적어 두었습니다</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="detail-block">
+        <h2>로그인과 2차 인증</h2>
+        <div class="story-list">
+          <div class="story">
+            <div class="story-head"><b>JWT에서 SSAFY 통합인증 + DB 세션으로</b><span>결정 번복</span></div>
+            <div class="story-rows">
+            <div class="story-row"><span class="k">상황</span><span>처음에는 무상태라 여러 인스턴스에 유리하다는 이유로 JWT를 골랐습니다</span></div>
+            <div class="story-row"><span class="k">판단</span><span>SSAFY 계정으로 로그인하면 회원가입 · 비밀번호 재설정 흐름이 필요 없고, 서버가 Lightsail 한 대라 무상태의 이득이 없으며, JWT는 이미 발급한 토큰을 바로 무효화할 수 없어 DB 세션으로 바꿨습니다</span></div>
+            <div class="story-row"><span class="k">구현</span><span>응답이 표준과 달라도 실패 원인이 보이도록 Spring OAuth2 Client 대신 직접 구현했습니다. 실제로 호출해 보니 인가 코드 파라미터는 문서의 <code>Code</code>가 아니라 <code>code</code>였고, 토큰 응답은 snake_case였습니다</span></div>
+            <div class="story-row res"><span class="k">결과</span><span>state 불일치 거절과 콜백 재생 방지를 포함한 통합 테스트 7개</span></div>
+            </div>
+          </div>
+          <div class="story">
+            <div class="story-head"><b>TOTP 2차 인증을 라이브러리 없이</b><span>RFC 6238 벡터 6개</span></div>
+            <div class="story-rows">
+            <div class="story-row"><span class="k">판단</span><span>후보 라이브러리는 5년째 갱신이 없고 다른 의존성을 함께 끌고 와, JDK HmacSHA1과 이미 쓰던 commons-codec(Base32)로 직접 구현했습니다</span></div>
+            <div class="story-row"><span class="k">검증</span><span>RFC 6238 부록 B 시험 벡터 6개로 확인하고, 코드 비교는 상수 시간 비교(<code>MessageDigest.isEqual</code>), 같은 6자리 재사용은 거절합니다</span></div>
+            <div class="story-row"><span class="k">문제</span><span>인증 실패 감사 기록이 예외 롤백에 같이 지워져, 실패한 사람만 흔적이 남지 않았습니다</span></div>
+            <div class="story-row res"><span class="k">해결</span><span>통합 테스트가 이를 잡았고, 실패 기록만 별도 트랜잭션(<code>REQUIRES_NEW</code>)으로 분리했습니다</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <a href="projects.html" class="project-link back-link">← 프로젝트 목록으로</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">KIMJOOWOO</a>
+          <p>백엔드와 인프라로 서비스를 만드는 개발자 김주우입니다.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Navigate</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="experience.html">Experience</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Links</h5>
+          <ul>
+            <li><a href="https://github.com/kimzoo5676-del" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://velog.io/@zooouu/posts" target="_blank" rel="noopener">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Joowoo Kim<span class="accent-dot">.</span></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=20261022"></script>
+  <script src="script.js?v=20261022"></script>
+</body>
+</html>
